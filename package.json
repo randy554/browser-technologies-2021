@@ -1,0 +1,19 @@
+{
+  "name": "minor-enquete-app",
+  "version": "1.0.0",
+  "description": "A progressive enhanced survey web app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/randy554/browser-technologies-2021.git"
+  },
+  "author": "Randy Dalgliesh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/randy554/browser-technologies-2021/issues"
+  },
+  "homepage": "https://github.com/randy554/browser-technologies-2021#readme"
+}
