@@ -10,7 +10,11 @@ app.set("views", "views");
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-  res.send("Welcome home");
+  res.render("index");
+});
+
+app.get("/course", (req, res) => {
+  res.render("course");
 });
 
 app.listen(process.env.PORT || 4000, () =>

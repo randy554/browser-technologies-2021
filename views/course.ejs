@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minor Web Enquete</title>
+  </head>
+  <body>
+    <%- include('partials/header'); %>
+
+    <main>
+      <p>Pagina 2/5</p>
+
+      <form action="/vak" method="get">
+        <label for="course">Vak:</label>
+
+        <select id="course">
+          <option value="cSSTotTheRescue">CSS to the Rescue</option>
+          <option value="WebAppFromScratch">Web App From Scratch</option>
+          <option value="progressiveWebApps">Progressive Web Apps</option>
+          <option value="browserTechnologies">Browser Technologies</option>
+          <option value="realTimeWeb">Real-Time Web</option>
+          <option value="HumanCenteredDesign">Human Centered Design</option>
+        </select>
+      </form>
+    </main>
+  </body>
+</html>
