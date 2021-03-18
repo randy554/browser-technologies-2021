@@ -10,12 +10,12 @@
     <%- include('partials/header'); %>
 
     <main>
-      <p>Pagina 2/5</p>
+      <p>Pagina 2/4</p>
 
-      <form action="/vak" method="get">
+      <form action="/assesment" method="get">
         <label for="course">Vak:</label>
 
-        <select id="course">
+        <select name="chosenCourse" id="course">
           <option value="cSSTotTheRescue">CSS to the Rescue</option>
           <option value="WebAppFromScratch">Web App From Scratch</option>
           <option value="progressiveWebApps">Progressive Web Apps</option>
@@ -23,6 +23,57 @@
           <option value="realTimeWeb">Real-Time Web</option>
           <option value="HumanCenteredDesign">Human Centered Design</option>
         </select>
+
+        <p>Docent(en)</p>
+        <input
+          type="checkbox"
+          id="teacher1"
+          name="chosenTeacher"
+          value="Koop Reynders"
+        />
+        <label for="teacher1"> Koop Reynders</label><br />
+        <input
+          type="checkbox"
+          id="teacher2"
+          name="chosenTeacher"
+          value="Peter Paul Koch"
+        />
+        <label for="teacher2"> Peter Paul Koch</label><br />
+        <input
+          type="checkbox"
+          id="teacher3"
+          name="chosenTeacher"
+          value="Joost Faber"
+        />
+        <label for="teacher3"> Joost Faber</label><br />
+        <input
+          type="checkbox"
+          id="teacher4"
+          name="chosenTeacher"
+          value="Vasilis van Gemert"
+        />
+        <label for="teacher4"> Vasilis van Gemert</label><br />
+        <input
+          type="checkbox"
+          id="teacher5"
+          name="chosenTeacher"
+          value="Sanne 't Hooft"
+        />
+        <label for="teacher5"> Sanne 't Hooft</label><br />
+
+        <p>Perioden:</p>
+        <input type="radio" id="week1" name="week" value="Week 5" />
+        <label for="week1">Week 5 - 9</label><br />
+        <input type="radio" id="week2" name="week" value="Week 10" />
+        <label for="week2">Week 10 - 14</label><br />
+        <input type="radio" id="week3" name="week" value="Week 15" />
+        <label for="week3">Week 15 - 19</label><br />
+        <input type="radio" id="week4" name="week" value="Week 20" />
+        <label for="week4">Week 20 - 24</label><br /><br />
+
+        <a href="/">Vorige</a>
+        <input type="hidden" name="page" value="2" />
+        <input type="submit" value="Volgende" />
       </form>
     </main>
   </body>

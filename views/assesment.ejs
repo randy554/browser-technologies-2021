@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minor Web Enquete</title>
+  </head>
+  <body>
+    <%- include('partials/header'); %>
+
+    <main>
+      <p>Pagina 3/4</p>
+
+      <p>Vak:</p>
+
+      <form action="/successpage" method="get">
+        <label for="difficulty">Lesstof (hoe moeilijk is het):</label>
+        <select name="rateDifficulty" id="difficulty">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option></select
+        ><br />
+
+        <label for="explanation"
+          >Uitleg (hoe duidelijk is het uitgelegd):</label
+        >
+        <select name="rateExplanation" id="explanation">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+        <br />
+        <label for="learned">Eigen inzicht (hoe goed snap je het):</label>
+        <select name="rateLearning" id="learned">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option></select
+        ><br /><br />
+
+        <a href="/course">Vorige</a>
+        <input type="hidden" name="page" value="2" />
+        <input type="submit" value="Afronden" />
+      </form>
+    </main>
+  </body>
+</html>
