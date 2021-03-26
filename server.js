@@ -93,17 +93,22 @@ app.post("/course", (req, res) => {
       // console.log("FORM studentNm", req.body.studentName);
       // console.log("DB studentNr", value.studentNumber);
       // console.log("FORM studentNr", req.body.studentNr);
-
-      return value;
+      console.log("hoe dan:", value.chosenCourse);
+      return value.chosenCourse;
     }
   });
 
   console.log("CHECK USER", userExist.length);
 
+  userExist.forEach((iets) => {
+    console.log("magic:", iets.chosenCourse);
+  });
+  console.log("CHECK USER", userExist);
+
   // console.log("stuff: ", findStudNr.length);
   if (userExist.length > 0) {
     console.log("Welcome back!");
-    res.render("profile");
+    res.render("profile", { finishedSurvey: userExist });
   } else {
     console.log("Welcome!");
     res.render("course", {

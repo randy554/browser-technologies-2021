@@ -145,5 +145,16 @@
     "rateDifficulty": "5",
     "rateExplanation": "5",
     "rateLearning": "7"
+  },
+  {
+    "chosenCourse": "Web Apps From Scratch",
+    "chosenTeacher": [
+      "Koop Reynders",
+      "Peter Paul Koch"
+    ],
+    "week": "Week 10",
+    "rateDifficulty": "1",
+    "rateExplanation": "1",
+    "rateLearning": "1"
   }
 ]

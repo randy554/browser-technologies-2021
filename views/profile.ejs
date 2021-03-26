@@ -25,8 +25,12 @@
 
       <p>Afgerond</p>
       <ul>
-        <li><a href="">CSS to the Rescue </a></li>
+        <% finishedSurvey.forEach(finished => { %>
+        <li><%- finished.chosenCourse %></li>
+        <% }); %>
       </ul>
+
+      <!-- <li><a href="">CSS to the Rescue </a></li> -->
     </main>
   </body>
 </html>
