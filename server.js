@@ -23,8 +23,8 @@ app.get("/course", (req, res) => {
   res.render("course");
 });
 
-app.get("/course/:coursename", (req, res) => {
-  console.log("course/coursename route:GET");
+app.get("/course/:coursename/:stdname/:stdnr", (req, res) => {
+  console.log("course/coursename/stdname/stdnr route:GET");
 
   console.log("PARAMS:", req.params.coursename);
   if (req.params.coursename == "hcd") {
@@ -46,7 +46,7 @@ app.get("/course/:coursename", (req, res) => {
     res.render("wafs");
   }
 
-  res.render("course");
+  // res.render("course");
 });
 
 app.post("/course", (req, res) => {
@@ -108,7 +108,11 @@ app.post("/course", (req, res) => {
   // console.log("stuff: ", findStudNr.length);
   if (userExist.length > 0) {
     console.log("Welcome back!");
-    res.render("profile", { finishedSurvey: userExist });
+    res.render("profile", {
+      finishedSurvey: userExist,
+      studentName: req.body.studentName,
+      studentNumber: req.body.studentNr,
+    });
   } else {
     console.log("Welcome!");
     res.render("course", {
@@ -231,7 +235,10 @@ app.post("/successpage", (req, res) => {
   res.render("successpage", { opgeslagenVak: req.body.chosenCourse });
 });
 
-app.get("finishpage", (req, res) => {});
+app.get("finishpage", (req, res) => {
+  let data = fs.readFileSync(path.resolve("database.json"));
+  data = JSON.parse(data);
+});
 
 app.listen(process.env.PORT || 4000, () =>
   console.log(`Open page @ http://localhost:${process.env.PORT}`)

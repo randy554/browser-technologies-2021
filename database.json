@@ -24,5 +24,52 @@
     "rateDifficulty": "4",
     "rateExplanation": "8",
     "rateLearning": "8"
+  },
+  {
+    "studentName": "Stan",
+    "studentNumber": "111111111",
+    "chosenCourse": "Browser Technologies",
+    "chosenTeacher": [
+      "Koop Reynders",
+      "Peter Paul Koch"
+    ],
+    "week": "Week 15",
+    "rateDifficulty": "7",
+    "rateExplanation": "1",
+    "rateLearning": "1"
+  },
+  {
+    "chosenCourse": "Human Centered Design",
+    "chosenTeacher": [
+      "Peter Paul Koch",
+      "Joost Faber"
+    ],
+    "rateDifficulty": "1",
+    "rateExplanation": "1",
+    "rateLearning": "1"
+  },
+  {
+    "chosenCourse": "Human Centered Design",
+    "chosenTeacher": [
+      "Koop Reynders",
+      "Vasilis van Gemert"
+    ],
+    "week": "Week 20",
+    "rateDifficulty": "7",
+    "rateExplanation": "9",
+    "rateLearning": "8"
+  },
+  {
+    "studentName": "Randy",
+    "studentNumber": "111111111",
+    "chosenCourse": "CSS To The Rescue",
+    "chosenTeacher": [
+      "Joost Faber",
+      "Vasilis van Gemert"
+    ],
+    "week": "Week 15",
+    "rateDifficulty": "1",
+    "rateExplanation": "1",
+    "rateLearning": "1"
   }
 ]
