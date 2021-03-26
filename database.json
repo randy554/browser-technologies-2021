@@ -1,98 +1,11 @@
 [
   {
-    "studentName": "",
-    "studentNumber": "500625572"
-  },
-  {
     "studentName": "Randy",
     "studentNumber": "500621572",
-    "answers": [
-      {
-        "chosenCourse": "cSSTotTheRescue",
-        "chosenTeacher": [
-          "Koop Reynders",
-          "Peter Paul Koch"
-        ],
-        "week": "Week 10",
-        "rateDifficulty": "1",
-        "rateExplanation": "1",
-        "rateLearning": "1",
-        "page": "2"
-      }
-    ]
-  },
-  {
-    "studentName": "Ben",
-    "studentNumber": "222222222",
-    "chosenCourse": "CSS To The Rescue",
-    "chosenTeacher": [
-      "Vasilis van Gemert",
-      "Sanne 't Hooft"
-    ],
-    "week": "Week 15",
-    "rateDifficulty": "1",
-    "rateExplanation": "1",
-    "rateLearning": "1"
-  },
-  {
-    "studentName": "Randy",
-    "studentNumber": "333333333",
-    "chosenCourse": "Human Centered Design",
-    "chosenTeacher": [
-      "Koop Reynders",
-      "Peter Paul Koch"
-    ],
-    "week": "Week 5",
-    "rateDifficulty": "5",
-    "rateExplanation": "8",
-    "rateLearning": "9"
-  },
-  {
-    "studentName": "Randy",
-    "studentNumber": "333333333",
-    "chosenCourse": "Human Centered Design",
-    "chosenTeacher": [
-      "Koop Reynders",
-      "Peter Paul Koch"
-    ],
-    "week": "Week 5",
-    "rateDifficulty": "5",
-    "rateExplanation": "8",
-    "rateLearning": "9"
-  },
-  {
-    "studentName": "john",
-    "studentNumber": "111111111",
     "chosenCourse": "Browser Technologies",
     "chosenTeacher": [
       "Koop Reynders",
       "Peter Paul Koch"
-    ],
-    "week": "Week 15",
-    "rateDifficulty": "8",
-    "rateExplanation": "9",
-    "rateLearning": "7"
-  },
-  {
-    "studentName": "Jan",
-    "studentNumber": "333333333",
-    "chosenCourse": "CSS To The Rescue",
-    "chosenTeacher": [
-      "Peter Paul Koch",
-      "Sanne 't Hooft"
-    ],
-    "week": "Week 10",
-    "rateDifficulty": "1",
-    "rateExplanation": "1",
-    "rateLearning": "1"
-  },
-  {
-    "studentName": "Ben",
-    "studentNumber": "222222222",
-    "chosenCourse": "Human Centered Design",
-    "chosenTeacher": [
-      "Joost Faber",
-      "Vasilis van Gemert"
     ],
     "week": "Week 15",
     "rateDifficulty": "8",
@@ -103,58 +16,13 @@
     "studentName": "Ben",
     "studentNumber": "222222222",
     "chosenCourse": "CSS To The Rescue",
-    "rateDifficulty": "1",
-    "rateExplanation": "1",
-    "rateLearning": "1"
-  },
-  {
-    "studentName": "Jan",
-    "studentNumber": "333333333",
-    "chosenCourse": "Human Centered Design",
     "chosenTeacher": [
-      "Koop Reynders",
-      "Peter Paul Koch"
-    ],
-    "week": "Week 5",
-    "rateDifficulty": "1",
-    "rateExplanation": "1",
-    "rateLearning": "1"
-  },
-  {
-    "studentName": "Jan",
-    "studentNumber": "333333333",
-    "chosenCourse": "Real-Time Web",
-    "chosenTeacher": [
-      "Vasilis van Gemert",
-      "Sanne 't Hooft"
-    ],
-    "week": "Week 20",
-    "rateDifficulty": "1",
-    "rateExplanation": "8",
-    "rateLearning": "1"
-  },
-  {
-    "studentName": "Randy",
-    "studentNumber": "777777777",
-    "chosenCourse": "CSS To The Rescue",
-    "chosenTeacher": [
-      "Joost Faber",
+      "Peter Paul Koch",
       "Vasilis van Gemert"
     ],
-    "week": "Week 10",
-    "rateDifficulty": "5",
-    "rateExplanation": "5",
-    "rateLearning": "7"
-  },
-  {
-    "chosenCourse": "Web Apps From Scratch",
-    "chosenTeacher": [
-      "Koop Reynders",
-      "Peter Paul Koch"
-    ],
-    "week": "Week 10",
-    "rateDifficulty": "1",
-    "rateExplanation": "1",
-    "rateLearning": "1"
+    "week": "Week 15",
+    "rateDifficulty": "4",
+    "rateExplanation": "8",
+    "rateLearning": "8"
   }
 ]
