@@ -28,22 +28,40 @@ app.get("/course/:coursename/:stdname/:stdnr", (req, res) => {
 
   console.log("PARAMS:", req.params.coursename);
   if (req.params.coursename == "hcd") {
-    res.render("hcd");
+    res.render("hcd", {
+      studentName: req.params.stdname,
+      studentNr: req.params.stdnr,
+    });
   }
   if (req.params.coursename == "pwa") {
-    res.render("pwa");
+    res.render("pwa", {
+      studentName: req.params.stdname,
+      studentNr: req.params.stdnr,
+    });
   }
   if (req.params.coursename == "css") {
-    res.render("css");
+    res.render("css", {
+      studentName: req.params.stdname,
+      studentNr: req.params.stdnr,
+    });
   }
   if (req.params.coursename == "btech") {
-    res.render("btech");
+    res.render("btech", {
+      studentName: req.params.stdname,
+      studentNr: req.params.stdnr,
+    });
   }
   if (req.params.coursename == "realtime") {
-    res.render("realtime");
+    res.render("realtime", {
+      studentName: req.params.stdname,
+      studentNr: req.params.stdnr,
+    });
   }
   if (req.params.coursename == "wafs") {
-    res.render("wafs");
+    res.render("wafs", {
+      studentName: req.params.stdname,
+      studentNr: req.params.stdnr,
+    });
   }
 
   // res.render("course");
