@@ -28,47 +28,59 @@ app.get("/course/:coursename/:stdname/:stdnr", (req, res) => {
 
   console.log("PARAMS:", req.params.coursename);
   if (req.params.coursename == "hcd") {
-    res.render("hcd", {
+    res.render("course", {
+      chosenCourse: "Human Centered Design",
       studentName: req.params.stdname,
       studentNr: req.params.stdnr,
     });
   }
   if (req.params.coursename == "pwa") {
-    res.render("pwa", {
+    res.render("course", {
+      chosenCourse: "Progressive Web Apps",
       studentName: req.params.stdname,
       studentNr: req.params.stdnr,
     });
   }
   if (req.params.coursename == "css") {
-    res.render("css", {
+    res.render("course", {
+      chosenCourse: "CSS To The Rescue",
       studentName: req.params.stdname,
       studentNr: req.params.stdnr,
     });
   }
   if (req.params.coursename == "btech") {
-    res.render("btech", {
+    res.render("course", {
+      chosenCourse: "Browser Technologies",
       studentName: req.params.stdname,
       studentNr: req.params.stdnr,
     });
   }
   if (req.params.coursename == "realtime") {
-    res.render("realtime", {
+    res.render("course", {
+      chosenCourse: "Real-Time Web",
       studentName: req.params.stdname,
       studentNr: req.params.stdnr,
     });
   }
   if (req.params.coursename == "wafs") {
-    res.render("wafs", {
+    res.render("course", {
+      chosenCourse: "Web Apps From Scratch",
       studentName: req.params.stdname,
       studentNr: req.params.stdnr,
     });
   }
 
-  // res.render("course");
+  // res.render("course", {
+  //   chosenCourse: req.params.coursename,
+  //   studentName: req.params.stdname,
+  //   studentNr: req.params.stdnr,
+  // });
 });
 
 app.post("/course", (req, res) => {
   console.log("course route:POST");
+
+  /* ---------- Backend validatie ----------  */
 
   if (req.body.studentName === "" || req.body.studentNr === "") {
     console.log("Name or studentnumber is empty");
@@ -87,18 +99,18 @@ app.post("/course", (req, res) => {
     });
   }
 
-  // console.log("Hele body req", req.body);
+  /* ---------- Backend validatie ----------  */
 
   let data = fs.readFileSync(path.resolve("database.json"));
   data = JSON.parse(data);
 
   // check to see if studentnr is already in database.json
-  let findStudNr = data.filter((value) => {
-    if (value.studentNumber == req.body.studentNr) {
-      // console.log("findStud", value);
-      return value;
-    }
-  });
+  // let findStudNr = data.filter((value) => {
+  //   if (value.studentNumber == req.body.studentNr) {
+  //     // console.log("findStud", value);
+  //     return value;
+  //   }
+  // });
 
   let userExist = data.filter((value) => {
     if (
@@ -111,45 +123,50 @@ app.post("/course", (req, res) => {
       // console.log("FORM studentNm", req.body.studentName);
       // console.log("DB studentNr", value.studentNumber);
       // console.log("FORM studentNr", req.body.studentNr);
-      console.log("hoe dan:", value.chosenCourse);
-      return value.chosenCourse;
+      console.log("hoe dan:", value.studentName);
+      return value;
     }
   });
 
-  console.log("CHECK USER", userExist.length);
+  console.log("CHECK USER 1", userExist.length);
 
-  userExist.forEach((iets) => {
-    console.log("magic:", iets.chosenCourse);
+  let hasCourse = userExist.filter((has) => {
+    if (has.chosenCourse !== "undefined") {
+      return has.chosenCourse;
+    }
   });
-  console.log("CHECK USER", userExist);
+
+  console.log("heeft course:", hasCourse.length);
 
   // console.log("stuff: ", findStudNr.length);
   if (userExist.length > 0) {
     console.log("Welcome back!");
     res.render("profile", {
-      finishedSurvey: userExist,
+      hasSurveyAnswers: hasCourse,
       studentName: req.body.studentName,
       studentNumber: req.body.studentNr,
     });
   } else {
     console.log("Welcome!");
-    res.render("course", {
+
+    // console.log("dit is de data: ", data);
+
+    let newUser = {
+      studentName: req.body.studentName,
+      studentNumber: req.body.studentNr,
+    };
+
+    data.push(newUser);
+    let save = fs.writeFileSync(
+      path.resolve("database.json"),
+      JSON.stringify(data, null, 2)
+    );
+
+    res.render("profile", {
+      hasSurveyAnswers: [],
       studentName: req.body.studentName,
       studentNumber: req.body.studentNr,
     });
-    // console.log("dit is de data: ", data);
-
-    // let newUser = {
-    //   studentName: req.body.studentName,
-    //   studentNumber: req.body.studentNr,
-    //   answers: [],
-    // };
-
-    // data.push(newUser);
-    // let save = fs.writeFileSync(
-    //   path.resolve("database.json"),
-    //   JSON.stringify(data, null, 2)
-    // );
   }
 });
 

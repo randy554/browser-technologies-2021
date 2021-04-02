@@ -10,7 +10,7 @@
     <%- include('partials/header'); %>
 
     <main>
-      <h2>Welkom</h2>
+      <h2>Welkom <%- studentName %>,</h2>
 
       <p>Vul de enquete in voor de volgende vakken</p>
 
@@ -48,13 +48,13 @@
       </ul>
 
       <p>Afgerond</p>
+      <% if(hasSurveyAnswers.length > 0) { %>
       <ul>
-        <% finishedSurvey.forEach(finished => { %>
+        <% hasSurveyAnswers.forEach(finished => { %>
         <li><%- finished.chosenCourse %></li>
         <% }); %>
       </ul>
-
-      <!-- <li><a href="">CSS to the Rescue </a></li> -->
+      <% } %>
     </main>
   </body>
 </html>

@@ -15,6 +15,15 @@
       <form action="/successpage" method="post">
         <label for="course">Vak: <%- chosenCourse %></label>
 
+        <!-- <select name="chosenCourse" id="course">
+          <option value="CSS To The Rescue">CSS To The Rescue</option>
+          <option value="Web Apps From Scratch">Web Apps From Scratch</option>
+          <option value="Progressive Web Apps">Progressive Web Apps</option>
+          <option value="Browser Technologies">Browser Technologies</option>
+          <option value="Real-Time Web">Real-Time Web</option>
+          <option value="Human Centered Design">Human Centered Design</option>
+        </select> -->
+
         <p>Docent(en)</p>
         <input
           type="checkbox"
@@ -63,35 +72,49 @@
         <label for="week4">Week 20 - 24</label><br /><br />
 
         <label for="difficulty">Lesstof (hoe moeilijk is het):</label>
-        <input
-          type="number"
-          name="rateDifficulty"
-          id="difficulty"
-          min="1"
-          max="10"
-        />
-        <br />
+        <select name="rateDifficulty" id="difficulty">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option></select
+        ><br />
 
         <label for="explanation">
           Uitleg (hoe duidelijk is het uitgelegd):
         </label>
-        <input
-          type="number"
-          name="rateExplanation"
-          id="explanation"
-          min="1"
-          max="10"
-        />
+        <select name="rateExplanation" id="explanation">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
         <br />
-
         <label for="learned">Eigen inzicht (hoe goed snap je het):</label>
-        <input
-          type="number"
-          name="rateLearning"
-          id="learned"
-          min="1"
-          max="10"
-        />
+        <select name="rateLearning" id="learned">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+
         <br /><br />
 
         <input type="hidden" name="page" value="2" />
