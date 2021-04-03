@@ -6,6 +6,14 @@ let subMBtn = document.querySelector("[type='submit']");
 let form = document.querySelector("form");
 let errorEl = document.querySelector("ul");
 
+nameField.addEventListener("blur", (evt) => {
+  console.log("Hey, je verlaat de naam student: veld!");
+});
+
+stNrField.addEventListener("blur", (evt) => {
+  console.log("Hey, je verlaat de studentnummer: veld!");
+});
+
 form.addEventListener("submit", (evt) => {
   let messages = [];
 
