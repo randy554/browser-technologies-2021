@@ -117,12 +117,6 @@ app.post("/course", (req, res) => {
       value.studentName == req.body.studentName &&
       value.studentNumber == req.body.studentNr
     ) {
-      // console.log("userExist", value);
-
-      // console.log("DB studentNm", value.studentName);
-      // console.log("FORM studentNm", req.body.studentName);
-      // console.log("DB studentNr", value.studentNumber);
-      // console.log("FORM studentNr", req.body.studentNr);
       console.log("hoe dan:", value.studentName);
       return value;
     }
@@ -138,7 +132,6 @@ app.post("/course", (req, res) => {
 
   console.log("heeft course:", hasCourse.length);
 
-  // console.log("stuff: ", findStudNr.length);
   if (userExist.length > 0) {
     console.log("Welcome back!");
     res.render("profile", {
@@ -148,8 +141,6 @@ app.post("/course", (req, res) => {
     });
   } else {
     console.log("Welcome!");
-
-    // console.log("dit is de data: ", data);
 
     let newUser = {
       studentName: req.body.studentName,
