@@ -3,10 +3,7 @@
     "studentName": "Randy",
     "studentNumber": "500621572",
     "chosenCourse": "Browser Technologies",
-    "chosenTeacher": [
-      "Koop Reynders",
-      "Peter Paul Koch"
-    ],
+    "chosenTeacher": ["Koop Reynders", "Peter Paul Koch"],
     "week": "Week 15",
     "rateDifficulty": "8",
     "rateExplanation": "8",
@@ -16,10 +13,7 @@
     "studentName": "Ben",
     "studentNumber": "222222222",
     "chosenCourse": "CSS To The Rescue",
-    "chosenTeacher": [
-      "Peter Paul Koch",
-      "Vasilis van Gemert"
-    ],
+    "chosenTeacher": ["Peter Paul Koch", "Vasilis van Gemert"],
     "week": "Week 15",
     "rateDifficulty": "4",
     "rateExplanation": "8",
@@ -29,10 +23,7 @@
     "studentName": "Stan",
     "studentNumber": "111111111",
     "chosenCourse": "Browser Technologies",
-    "chosenTeacher": [
-      "Koop Reynders",
-      "Peter Paul Koch"
-    ],
+    "chosenTeacher": ["Koop Reynders", "Peter Paul Koch"],
     "week": "Week 15",
     "rateDifficulty": "7",
     "rateExplanation": "1",
@@ -42,10 +33,7 @@
     "studentName": "Randy",
     "studentNumber": "111111111",
     "chosenCourse": "CSS To The Rescue",
-    "chosenTeacher": [
-      "Joost Faber",
-      "Vasilis van Gemert"
-    ],
+    "chosenTeacher": ["Joost Faber", "Vasilis van Gemert"],
     "week": "Week 15",
     "rateDifficulty": "1",
     "rateExplanation": "1",
@@ -55,10 +43,7 @@
     "studentName": "Ben",
     "studentNumber": "500621572",
     "chosenCourse": "CSS To The Rescue",
-    "chosenTeacher": [
-      "Peter Paul Koch",
-      "Joost Faber"
-    ],
+    "chosenTeacher": ["Peter Paul Koch", "Joost Faber"],
     "week": "Week 10",
     "rateDifficulty": "1",
     "rateExplanation": "1",
@@ -68,10 +53,7 @@
     "studentName": "Ben",
     "studentNumber": "222222222",
     "chosenCourse": "Human Centered Design",
-    "chosenTeacher": [
-      "Vasilis van Gemert",
-      "Sanne 't Hooft"
-    ],
+    "chosenTeacher": ["Vasilis van Gemert", "Sanne 't Hooft"],
     "week": "Week 20",
     "rateDifficulty": "8",
     "rateExplanation": "7",
@@ -81,10 +63,7 @@
     "studentName": "Ben",
     "studentNumber": "222222222",
     "chosenCourse": "Real-Time Web",
-    "chosenTeacher": [
-      "Joost Faber",
-      "Sanne 't Hooft"
-    ],
+    "chosenTeacher": ["Joost Faber", "Sanne 't Hooft"],
     "week": "Week 20",
     "rateDifficulty": "8",
     "rateExplanation": "8",
@@ -103,17 +82,14 @@
     "studentName": "Messi",
     "studentNumber": "100000000",
     "chosenCourse": "Real-Time Web",
-    "chosenTeacher": [
-      "Joost Faber",
-      "Sanne 't Hooft"
-    ],
+    "chosenTeacher": ["Joost Faber", "Sanne 't Hooft"],
     "week": "Week 10",
     "rateDifficulty": "8",
     "rateExplanation": "8",
     "rateLearning": "8"
   },
   {
-    "studentName": "",
-    "studentNumber": "FSFSFEFFE"
+    "studentName": "Randy",
+    "studentNumber": "777777777"
   }
 ]

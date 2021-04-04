@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minor Web Enquete</title>
+  </head>
+  <body>
+    <%- include('partials/header'); %>
+
+    <main>
+      <p>Pagina 2/3</p>
+
+      <% if(messages.length > 0 ) { %>
+      <ul>
+        <% messages.forEach(error => { %>
+        <li><%- error %></li>
+        <% }); %>
+      </ul>
+      <% } %>
+
+      <form action="/successpage" method="post">
+        <label for="course">Vak: <%- chosenCourse %></label>
+
+        <p>Docent(en)</p>
+        <input
+          type="checkbox"
+          id="teacher1"
+          name="chosenTeacher"
+          value="Koop Reynders"
+        />
+        <label for="teacher1"> Koop Reynders</label><br />
+        <input
+          type="checkbox"
+          id="teacher2"
+          name="chosenTeacher"
+          value="Peter Paul Koch"
+        />
+        <label for="teacher2"> Peter Paul Koch</label><br />
+        <input
+          type="checkbox"
+          id="teacher3"
+          name="chosenTeacher"
+          value="Joost Faber"
+        />
+        <label for="teacher3"> Joost Faber</label><br />
+        <input
+          type="checkbox"
+          id="teacher4"
+          name="chosenTeacher"
+          value="Vasilis van Gemert"
+        />
+        <label for="teacher4"> Vasilis van Gemert</label><br />
+        <input
+          type="checkbox"
+          id="teacher5"
+          name="chosenTeacher"
+          value="Sanne 't Hooft"
+        />
+        <label for="teacher5"> Sanne 't Hooft</label><br />
+
+        <p>Perioden:</p>
+        <input type="radio" id="week1" name="week" value="Week 5" />
+        <label for="week1">Week 5 - 9</label><br />
+        <input type="radio" id="week2" name="week" value="Week 10" />
+        <label for="week2">Week 10 - 14</label><br />
+        <input type="radio" id="week3" name="week" value="Week 15" />
+        <label for="week3">Week 15 - 19</label><br />
+        <input type="radio" id="week4" name="week" value="Week 20" />
+        <label for="week4">Week 20 - 24</label><br /><br />
+
+        <label for="difficulty">Lesstof (hoe moeilijk is het):</label>
+        <input
+          type="number"
+          name="rateDifficulty"
+          id="difficulty"
+          min="1"
+          max="10"
+          placeholder="Geef een cijfer tussen 1-10"
+        />
+        <br />
+
+        <label for="explanation">
+          Uitleg (hoe duidelijk is het uitgelegd):
+        </label>
+        <input
+          type="number"
+          name="rateExplanation"
+          id="explanation"
+          min="1"
+          max="10"
+          placeholder="Geef een cijfer tussen 1-10"
+        />
+        <br />
+
+        <label for="learned">Eigen inzicht (hoe goed snap je het):</label>
+        <input
+          type="number"
+          name="rateLearning"
+          id="learned"
+          min="1"
+          max="10"
+          placeholder="Geef een cijfer tussen 1-10"
+        />
+        <br /><br />
+
+        <input type="hidden" name="page" value="2" />
+        <input type="hidden" name="chosenCourse" value="<%- chosenCourse %>" />
+        <input type="hidden" name="studentName" value="<%- studentName %>" />
+        <input type="hidden" name="studentNumber" value="<%- studentNr %>" />
+        <input type="submit" value="Opslaan" />
+      </form>
+    </main>
+  </body>
+</html>

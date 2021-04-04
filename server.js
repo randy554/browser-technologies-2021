@@ -80,27 +80,6 @@ app.get("/course/:coursename/:stdname/:stdnr", (req, res) => {
 app.post("/course", (req, res) => {
   console.log("course route:POST");
 
-  /* ---------- Backend validatie ----------  */
-
-  if (req.body.studentName === "" || req.body.studentNr === "") {
-    console.log("Name or studentnumber is empty");
-    res.render("index_failed", { message: "Vul alle velden in!" });
-  }
-
-  if (req.body.studentNr.length !== 9) {
-    console.log("Studentnumber is niet geldig");
-    res.render("index_failed", { message: "Studentnummer is 9 cijfers lang!" });
-  }
-
-  if (typeof req.body.studentNr.length !== "number") {
-    console.log("Studentnumber is niet geldig");
-    res.render("index_failed", {
-      message: "Studentnummer bestaat alleen uit cijfers!",
-    });
-  }
-
-  /* ---------- Backend validatie ----------  */
-
   let data = fs.readFileSync(path.resolve("database.json"));
   data = JSON.parse(data);
 
@@ -167,14 +146,45 @@ app.post("/assesment", (req, res) => {
 
 app.post("/successpage", (req, res) => {
   console.log("succespage route:POST");
-  // console.log("ALLE DATA: ", req.body);
+  console.log("ALLE DATA: ", req.body);
+
+  let messages = [];
 
   if (!req.body.hasOwnProperty("chosenTeacher")) {
     console.log("Geen docent(en) gekozen!");
+    messages.push("Geen docent(en) gekozen!");
   }
 
   if (!req.body.hasOwnProperty("week")) {
     console.log("Geen les periode gekozen!");
+    messages.push("Geen les periode gekozen!");
+  }
+
+  if (req.body.rateDifficulty == "" || req.body.rateDifficulty == null) {
+    console.log("Beoordeel de lesstof!");
+    messages.push("Beoordeel de lesstof!");
+  }
+
+  if (req.body.rateExplanation == "" || req.body.rateExplanation == null) {
+    console.log("Beoordeel de uitleg van het vak!");
+    messages.push("Beoordeel de uitleg van het vak!");
+  }
+
+  if (req.body.rateLearning == "" || req.body.rateLearning == null) {
+    console.log("Beoordeel je eigen inzicht van het vak!");
+    messages.push("Beoordeel je eigen inzicht van het vak!");
+  }
+
+  console.log("errors:", messages.length);
+
+  if (messages.length > 0) {
+    console.log("niet binnen terug");
+    res.render("course_error", {
+      messages: messages,
+      chosenCourse: req.body.chosenCourse,
+      studentName: req.body.studentName,
+      studentNr: req.body.studentNumber,
+    });
   }
 
   let data = fs.readFileSync(path.resolve("database.json"));
@@ -189,18 +199,20 @@ app.post("/successpage", (req, res) => {
 
   // console.log("laatziendan: ", findStudNr[0].answers);
 
-  let userAnswers = {
-    studentName: req.body.studentName,
-    studentNumber: req.body.studentNumber,
-    chosenCourse: req.body.chosenCourse,
-    chosenTeacher: req.body.chosenTeacher,
-    week: req.body.week,
-    rateDifficulty: req.body.rateDifficulty,
-    rateExplanation: req.body.rateExplanation,
-    rateLearning: req.body.rateLearning,
-  };
+  /* ---------- NUUUUUUUUUUUUUU ----------  */
+  // let userAnswers = {
+  //   studentName: req.body.studentName,
+  //   studentNumber: req.body.studentNumber,
+  //   chosenCourse: req.body.chosenCourse,
+  //   chosenTeacher: req.body.chosenTeacher,
+  //   week: req.body.week,
+  //   rateDifficulty: req.body.rateDifficulty,
+  //   rateExplanation: req.body.rateExplanation,
+  //   rateLearning: req.body.rateLearning,
+  // };
 
-  data.push(userAnswers);
+  // data.push(userAnswers);
+  /* ---------- NUUUUUUUUUUUUUU ----------  */
 
   // voeg cursus antwoorden toe bij ingelogde user
   // data.forEach((value) => {
@@ -211,11 +223,13 @@ app.post("/successpage", (req, res) => {
 
   // console.log("NA 1e SAVE: ", data);
 
+  /* ---------- NUUUUUUUUUUUUUU ----------  */
   // bewaar het database.json bestand
-  let save = fs.writeFileSync(
-    path.resolve("database.json"),
-    JSON.stringify(data, null, 2)
-  );
+  // let save = fs.writeFileSync(
+  //   path.resolve("database.json"),
+  //   JSON.stringify(data, null, 2)
+  // );
+  /* ---------- NUUUUUUUUUUUUUU ----------  */
 
   // open het database.json bestand opnieuw met up-to-date cursus data
   // let getDBData = fs.readFileSync(path.resolve("database.json"));
