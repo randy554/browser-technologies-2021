@@ -4,11 +4,15 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/messages.css" />
+    <link rel="stylesheet" href="/css/progress.css" />
     <title>Minor Web Enquete</title>
   </head>
   <body>
     <%- include('partials/header'); %>
+
+    <form hidden id="hiddenProgress" action="#" method="get">
+      <input type="text" name="progressValue" value="<%- progress %>" />
+    </form>
 
     <main>
       <picture>
@@ -26,13 +30,22 @@
       <p>Meteen verder met de enquete?</p>
 
       <ul>
-        <li><a href="/course/css">CSS to the Rescue</a></li>
-        <li><a href="/course/wafs">Web App From Scratch</a></li>
-        <li><a href="/course/pwa">Progressive Web Apps</a></li>
-        <li><a href="/course/btech">Browser Technologies</a></li>
-        <li><a href="/course/realtime">Real-Time Web</a></li>
-        <li><a href="/course/hcd">Human Centered Design</a></li>
+        <% for(key in resterendeVakken) { %>
+
+        <li>
+          <a
+            href="/course/<%- key %>/<%- studentName %>/<%- studentNr %>/<%- progress %> "
+            ><%- resterendeVakken[key] %></a
+          >
+        </li>
+
+        <% } %>
       </ul>
+
+      <a href="/profile/<%- studentName %>/<%- studentNr %>/<%- progress %>"
+        >Profielpagina</a
+      >
     </main>
+    <%- include('partials/footer'); %>
   </body>
 </html>

@@ -4,10 +4,15 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/progress.css" />
     <title>Minor Web Enquete</title>
   </head>
   <body>
     <%- include('partials/header'); %>
+
+    <form hidden id="hiddenProgress" action="#" method="get">
+      <input type="text" name="progressValue" value="<%- progress %>" />
+    </form>
 
     <main>
       <p>Pagina 2/3</p>
@@ -109,8 +114,10 @@
         <input type="hidden" name="chosenCourse" value="<%- chosenCourse %>" />
         <input type="hidden" name="studentName" value="<%- studentName %>" />
         <input type="hidden" name="studentNumber" value="<%- studentNr %>" />
+        <input type="hidden" name="progressValue" value="<%- progress %>" />
         <input type="submit" value="Opslaan" />
       </form>
     </main>
+    <%- include('partials/footer'); %>
   </body>
 </html>

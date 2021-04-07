@@ -4,10 +4,15 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/progress.css" />
     <title>Minor Web Enquete</title>
   </head>
   <body>
     <%- include('partials/header'); %>
+
+    <form hidden id="hiddenProgress" action="#" method="get">
+      <input type="text" name="progressValue" value="<%- progress %>" />
+    </form>
 
     <main>
       <h2>Welkom <%- studentName %>,</h2>
@@ -16,32 +21,38 @@
 
       <ul>
         <li>
-          <a href="/course/css/<%- studentName %>/<%- studentNumber %>"
+          <a
+            href="/course/css/<%- studentName %>/<%- studentNumber %>/<%- progress %> "
             >CSS to the Rescue</a
           >
         </li>
         <li>
-          <a href="/course/wafs/<%- studentName %>/<%- studentNumber %>"
+          <a
+            href="/course/wafs/<%- studentName %>/<%- studentNumber %>/<%- progress %> "
             >Web App From Scratch</a
           >
         </li>
         <li>
-          <a href="/course/pwa/<%- studentName %>/<%- studentNumber %>"
+          <a
+            href="/course/pwa/<%- studentName %>/<%- studentNumber %>/<%- progress %> "
             >Progressive Web Apps</a
           >
         </li>
         <li>
-          <a href="/course/btech/<%- studentName %>/<%- studentNumber %>"
+          <a
+            href="/course/btech/<%- studentName %>/<%- studentNumber %>/<%- progress %> "
             >Browser Technologies</a
           >
         </li>
         <li>
-          <a href="/course/realtime/<%- studentName %>/<%- studentNumber %>"
+          <a
+            href="/course/realtime/<%- studentName %>/<%- studentNumber %>/<%- progress %> "
             >Real-Time Web</a
           >
         </li>
         <li>
-          <a href="/course/hcd/<%- studentName %>/<%- studentNumber %>"
+          <a
+            href="/course/hcd/<%- studentName %>/<%- studentNumber %>/<%- progress %> "
             >Human Centered Design</a
           >
         </li>
@@ -56,5 +67,6 @@
       </ul>
       <% } %>
     </main>
+    <%- include('partials/footer'); %>
   </body>
 </html>
