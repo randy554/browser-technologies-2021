@@ -17,6 +17,9 @@
 //   }
 // }
 
+let showSection = document.querySelector("#progressSection");
+showSection.style.display = "block";
+
 window.addEventListener("load", () => {
   let progBar = document.querySelector("#myBar");
   let progDB = document.querySelector(
