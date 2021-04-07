@@ -14,9 +14,12 @@
       <input type="text" name="progressValue" value="<%- progress %>" />
     </form>
 
-    <main>
-      <p>Pagina 2/3</p>
+    <section id="progressSectionFunc">
+      <p>Algmene voortgang</p>
+      <p><%- progress %> /6</p>
+    </section>
 
+    <main>
       <% if(messages.length > 0 ) { %>
       <ul>
         <% messages.forEach(error => { %>

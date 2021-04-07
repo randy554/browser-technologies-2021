@@ -5,3 +5,11 @@
 #opgeslagenVak {
   color: green;
 }
+
+#error_name {
+  display: none;
+}
+
+#error_number {
+  display: none;
+}

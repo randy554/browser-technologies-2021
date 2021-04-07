@@ -15,24 +15,30 @@
       <ul></ul>
 
       <form action="/course" method="POST" autocomplete="on">
-        <label for="nameStudent">Naam student: </label>
-        <input
-          type="text"
-          name="studentName"
-          id="nameStudent"
-          autocomplete="on"
-          required
-        />
-        <label for="studentNumber">Studentnummer: </label>
-        <input
-          type="text"
-          name="studentNr"
-          id="studentNumber"
-          minlength="9"
-          maxlength="9"
-          placeholder="9 karakters"
-          required
-        />
+        <label for="nameStudent"
+          >Naam student:
+          <input
+            type="text"
+            name="studentName"
+            id="nameStudent"
+            autocomplete="on"
+            required
+          />
+          <p id="error_name" class="inlog_failed">Error here</p>
+        </label>
+        <label for="studentNumber"
+          >Studentnummer:
+          <input
+            type="text"
+            name="studentNr"
+            id="studentNumber"
+            minlength="9"
+            maxlength="9"
+            placeholder="9 karakters"
+            required
+          />
+          <p id="error_number" class="inlog_failed">Error here</p>
+        </label>
         <input type="hidden" name="page" value="1" />
         <input type="submit" value="Inloggen" />
       </form>

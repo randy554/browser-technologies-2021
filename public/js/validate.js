@@ -6,12 +6,28 @@ let subMBtn = document.querySelector("[type='submit']");
 let form = document.querySelector("form");
 let errorEl = document.querySelector("ul");
 
+let errorName = document.querySelector("#error_name");
+let errorNumber = document.querySelector("#error_number");
+
 nameField.addEventListener("blur", (evt) => {
   console.log("Hey, je verlaat de naam student: veld!");
+  if (nameField.value === "" || nameField.value == null) {
+    errorName.innerText = "Vul naam student in!";
+    errorName.style.display = "block";
+  } else {
+    errorName.style.display = "none";
+  }
 });
 
 stNrField.addEventListener("blur", (evt) => {
   console.log("Hey, je verlaat de studentnummer: veld!");
+
+  if (stNrField.value === "" || stNrField.value == null) {
+    errorNumber.innerText = "Vul studentnummer in!";
+    errorNumber.style.display = "block";
+  } else {
+    errorNumber.style.display = "none";
+  }
 });
 
 form.addEventListener("submit", (evt) => {

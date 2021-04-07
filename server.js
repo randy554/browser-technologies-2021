@@ -386,25 +386,11 @@ app.post("/successpage", (req, res) => {
       done.studentNumber == req.body.studentNumber &&
       done.hasOwnProperty("courses")
     ) {
-      // console.log("Vakksfijen:", done);
-      // console.log("Vn:", done.hasOwnProperty("courses"));
       done.progress++;
       return done.courses;
-      // for (const property in done.courses) {
-      //   // if (done.courses[property] == "wafs") {
-      //   //   console.log(`YES: ${done.courses[property]}`);
-      //   // }
-      //   // return done.courses;
-      // }
-
-      // if (done.courses) {
-      //   let all = Object.values(done.courses);
-      //   return all;
-      // }
     }
   });
 
-  // console.log("iodsfffoi", all_courses.hasOwnProperty("courses"));
   console.log("iodsfffoi", all_courses);
 
   let clean = all_courses.filter((values) => {
@@ -412,16 +398,6 @@ app.post("/successpage", (req, res) => {
       return values;
     }
   });
-
-  // console.log("zzzzz:", clean);
-  console.log("course3:", clean[0]);
-
-  // let final = clean[0].forEach((vak) => {
-  //   console.log(`Dit: ${vak} df`);
-  // });
-  // for (const key in clean[0]) {
-  //   console.log(`Dit: ${clean[0][key]}`);
-  // }
 
   res.render("successpage", {
     progress: ++req.body.progressValue,
