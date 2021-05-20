@@ -1,0 +1,8 @@
+.finishedSurveys {
+  color: green;
+}
+
+.surveyError {
+  color: red;
+  list-style: none;
+}

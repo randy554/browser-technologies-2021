@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/progress.css" />
+    <link rel="stylesheet" href="/css/surveys.css" />
     <title>Minor Web Enquete</title>
   </head>
   <body>
@@ -67,7 +68,7 @@
       <% if(hasSurveyAnswers.length > 0) { %>
       <ul>
         <% hasSurveyAnswers.forEach(finished => { %>
-        <li><%- finished.chosenCourse %></li>
+        <li class="finishedSurveys"><%- finished.chosenCourse %></li>
         <% }); %>
       </ul>
       <% } %>

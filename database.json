@@ -66,7 +66,7 @@
       "btech": "Browser Technologies",
       "hcd": "Human Centered Design"
     },
-    "progress": 1
+    "progress": 3
   },
   {
     "studentName": "Ronaldo",
@@ -80,5 +80,29 @@
     "rateDifficulty": "6",
     "rateExplanation": "7",
     "rateLearning": "7"
+  },
+  {
+    "studentName": "Ronaldo",
+    "studentNumber": "777777777",
+    "chosenCourse": "Real-Time Web",
+    "chosenTeacher": [
+      "Joost Faber",
+      "Vasilis van Gemert"
+    ],
+    "rateDifficulty": "4",
+    "rateExplanation": "",
+    "rateLearning": ""
+  },
+  {
+    "studentName": "Ronaldo",
+    "studentNumber": "777777777",
+    "chosenCourse": "Real-Time Web",
+    "chosenTeacher": [
+      "Joost Faber",
+      "Vasilis van Gemert"
+    ],
+    "rateDifficulty": "4",
+    "rateExplanation": "",
+    "rateLearning": ""
   }
 ]
