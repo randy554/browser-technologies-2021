@@ -17,92 +17,74 @@
     "studentNumber": "100000000",
     "courses": {
       "wafs": "Web Apps From Scratch",
+      "pwa": "Progressive Web Apps",
       "btech": "Browser Technologies",
-      "realtime": "Real-Time Web"
+      "realtime": "Real-Time Web",
+      "hcd": "Human Centered Design"
     },
-    "progress": 3
+    "progress": 1
   },
   {
     "studentName": "Messi",
     "studentNumber": "100000000",
     "chosenCourse": "CSS To The Rescue",
     "chosenTeacher": [
-      "Koop Reynders",
-      "Vasilis van Gemert"
+      "Peter Paul Koch",
+      "Joost Faber"
     ],
-    "week": "Week 5",
-    "rateDifficulty": "8",
-    "rateExplanation": "8",
-    "rateLearning": "8"
-  },
-  {
-    "studentName": "Messi",
-    "studentNumber": "100000000",
-    "chosenCourse": "Human Centered Design",
-    "chosenTeacher": [
-      "Vasilis van Gemert",
-      "Sanne 't Hooft"
-    ],
-    "week": "Week 15",
-    "rateDifficulty": "9",
-    "rateExplanation": "7",
-    "rateLearning": "8"
-  },
-  {
-    "studentName": "Messi",
-    "studentNumber": "100000000",
-    "chosenCourse": "Progressive Web Apps",
-    "rateDifficulty": "",
-    "rateExplanation": "",
-    "rateLearning": ""
+    "week": "Week 10",
+    "rateDifficulty": "6",
+    "rateExplanation": "5",
+    "rateLearning": "6"
   },
   {
     "studentName": "Ronaldo",
-    "studentNumber": "777777777",
+    "studentNumber": "999999999",
+    "courses": {
+      "css": "CSS To The Rescue",
+      "wafs": "Web Apps From Scratch",
+      "pwa": "Progressive Web Apps",
+      "btech": "Browser Technologies"
+    },
+    "progress": 2
+  },
+  {
+    "studentName": "Ronaldo",
+    "studentNumber": "999999999",
+    "chosenCourse": "Human Centered Design",
+    "chosenTeacher": [
+      "Peter Paul Koch",
+      "Vasilis van Gemert"
+    ],
+    "week": "Week 5",
+    "rateDifficulty": "3",
+    "rateExplanation": "4",
+    "rateLearning": "4"
+  },
+  {
+    "studentName": "Ronaldo",
+    "studentNumber": "999999999",
+    "chosenCourse": "Real-Time Web",
+    "chosenTeacher": [
+      "Koop Reynders",
+      "Peter Paul Koch"
+    ],
+    "week": "Week 5",
+    "rateDifficulty": "6",
+    "rateExplanation": "5",
+    "rateLearning": "6"
+  },
+  {
+    "studentName": "Randy",
+    "studentNumber": "999999999",
     "courses": {
       "css": "CSS To The Rescue",
       "wafs": "Web Apps From Scratch",
       "pwa": "Progressive Web Apps",
       "btech": "Browser Technologies",
+      "realtime": "Real-Time Web",
       "hcd": "Human Centered Design"
     },
-    "progress": 3
-  },
-  {
-    "studentName": "Ronaldo",
-    "studentNumber": "777777777",
-    "chosenCourse": "Real-Time Web",
-    "chosenTeacher": [
-      "Joost Faber",
-      "Vasilis van Gemert"
-    ],
-    "week": "Week 5",
-    "rateDifficulty": "6",
-    "rateExplanation": "7",
-    "rateLearning": "7"
-  },
-  {
-    "studentName": "Ronaldo",
-    "studentNumber": "777777777",
-    "chosenCourse": "Real-Time Web",
-    "chosenTeacher": [
-      "Joost Faber",
-      "Vasilis van Gemert"
-    ],
-    "rateDifficulty": "4",
-    "rateExplanation": "",
-    "rateLearning": ""
-  },
-  {
-    "studentName": "Ronaldo",
-    "studentNumber": "777777777",
-    "chosenCourse": "Real-Time Web",
-    "chosenTeacher": [
-      "Joost Faber",
-      "Vasilis van Gemert"
-    ],
-    "rateDifficulty": "4",
-    "rateExplanation": "",
-    "rateLearning": ""
+    "progress": 0
   }
 ]

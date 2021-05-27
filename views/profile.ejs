@@ -12,7 +12,24 @@
     <%- include('partials/header'); %>
 
     <form hidden id="hiddenProgress" action="#" method="get">
-      <input type="text" name="progressValue" value="<%- progress %>" />
+      <input
+        type="text"
+        name="progressValue"
+        id="getProgress"
+        value="<%- progress %>"
+      />
+      <input
+        type="text"
+        name="studentNameValue"
+        id="getStudentName"
+        value="<%- studentName %>"
+      />
+      <input
+        type="text"
+        name="studentNumberValue"
+        id="getStudentNumber"
+        value="<%- studentNumber %>"
+      />
     </form>
 
     <section id="progressSectionFunc">
@@ -23,9 +40,9 @@
     <main>
       <h2>Welkom <%- studentName %>,</h2>
 
-      <p>Vul de enquete in voor de volgende vakken</p>
+      <p id="pageTitle">Vul de enquete in voor de volgende vakken</p>
 
-      <ul>
+      <ul id="allSurveys">
         <li>
           <a
             href="/course/css/<%- studentName %>/<%- studentNumber %>/<%- progress %> "
@@ -64,11 +81,27 @@
         </li>
       </ul>
 
-      <p>Afgerond</p>
-      <% if(hasSurveyAnswers.length > 0) { %>
-      <ul>
+      <% if(resterendeVakken) { %>
+      <p id="toDoTitle">Meteen verder met de enquete?</p>
+      <ul id="toDoSurveys">
+        <% for(key in resterendeVakken) { %>
+
+        <li>
+          <a
+            href="/course/<%- key %>/<%- studentName %>/<%- studentNumber %>/<%- progress %> "
+            ><%- resterendeVakken[key] %></a
+          >
+        </li>
+
+        <% } %>
+      </ul>
+      <% } %> <% if(hasSurveyAnswers.length > 0) { %>
+      <p id="afgerondTitle">Afgerond</p>
+      <ul id="finishedSurveys">
         <% hasSurveyAnswers.forEach(finished => { %>
-        <li class="finishedSurveys"><%- finished.chosenCourse %></li>
+        <li class="finishedSurveys">
+          <span>&#x2713;</span> <%- finished.chosenCourse %>
+        </li>
         <% }); %>
       </ul>
       <% } %>

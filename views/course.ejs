@@ -20,45 +20,86 @@
     </section>
 
     <main>
-      <form action="/successpage" method="post">
+      <form action="/course" method="post">
         <label for="course">Vak: <%- chosenCourse %></label>
 
-        <p>Docent(en)</p>
+        <p>Docent</p>
+        <!-- CSS To The Rescue -->
         <input
-          type="checkbox"
+          type="radio"
           id="teacher1"
-          name="chosenTeacher"
-          value="Koop Reynders"
-        />
-        <label for="teacher1"> Koop Reynders</label><br />
-        <input
-          type="checkbox"
-          id="teacher2"
-          name="chosenTeacher"
-          value="Peter Paul Koch"
-        />
-        <label for="teacher2"> Peter Paul Koch</label><br />
-        <input
-          type="checkbox"
-          id="teacher3"
-          name="chosenTeacher"
-          value="Joost Faber"
-        />
-        <label for="teacher3"> Joost Faber</label><br />
-        <input
-          type="checkbox"
-          id="teacher4"
-          name="chosenTeacher"
-          value="Vasilis van Gemert"
-        />
-        <label for="teacher4"> Vasilis van Gemert</label><br />
-        <input
-          type="checkbox"
-          id="teacher5"
-          name="chosenTeacher"
+          name="teacher"
           value="Sanne 't Hooft"
         />
-        <label for="teacher5"> Sanne 't Hooft</label><br />
+        <label for="teacher1">Sanne 't Hooft</label><br />
+
+        <input
+          type="radio"
+          id="teacher2"
+          name="teacher"
+          value="Vasilis van Gemert"
+        />
+        <label for="teacher2">Vasilis van Gemert</label><br /><br />
+
+        <!-- Web Apps From Scratch -->
+        <input type="radio" id="teacher3" name="teacher" value="Joost Faber" />
+        <label for="teacher3">Joost Faber</label><br />
+        <input type="radio" id="teacher4" name="teacher" value="Declan Rek" />
+        <label for="teacher4">Declan Rek</label><br /><br />
+
+        <!-- Browser Tech -->
+        <input
+          type="radio"
+          id="teacher5"
+          name="teacher"
+          value="Peter Paul Koch"
+        />
+        <label for="teacher5">Peter Paul Koch</label><br />
+        <input
+          type="radio"
+          id="teacher6"
+          name="teacher"
+          value="Koop Reynders"
+        />
+        <label for="teacher6">Koop Reynders</label><br /><br />
+
+        <!-- Progressive Web Apps -->
+        <input type="radio" id="teacher7" name="teacher" value="Joost Faber" />
+        <label for="teacher7">Joost Faber</label><br />
+        <input type="radio" id="teacher8" name="teacher" value="Declan Rek" />
+        <label for="teacher8">Declan Rek</label><br /><br />
+
+        <!-- Human Centered Design  -->
+        <input
+          type="radio"
+          id="teacher9"
+          name="teacher"
+          value="Vasilis van Gemert"
+        />
+        <label for="teacher9">Vasilis van Gemert</label><br />
+        <input
+          type="radio"
+          id="teacher10"
+          name="teacher"
+          value="Koop Reynders"
+        />
+        <label for="teacher10">Koop Reynders</label><br /><br />
+
+        <!--  Real-Time Web  -->
+        <input
+          type="radio"
+          id="teacher11"
+          name="teacher"
+          value="Justus Sturkenboom"
+        />
+        <label for="teacher11">Justus Sturkenboom</label><br />
+        <input
+          type="radio"
+          id="teacher12"
+          name="teacher"
+          value="Lucas van Driel"
+        />
+        <label for="teacher12">Lucas van Driel</label><br /><br />
 
         <p>Perioden:</p>
         <input type="radio" id="week1" name="week" value="Week 5" />
@@ -110,9 +151,10 @@
         <input type="hidden" name="studentName" value="<%- studentName %>" />
         <input type="hidden" name="studentNumber" value="<%- studentNr %>" />
         <input type="hidden" name="progressValue" value="<%- progress %>" />
+        <input type="hidden" name="afterSurvey" value="<%- progress %>" />
         <input type="submit" value="Opslaan" />
       </form>
     </main>
-    <%- include('partials/footer'); %>
+    <%- include('partials/coursefooter'); %>
   </body>
 </html>

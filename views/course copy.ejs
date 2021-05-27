@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/progress.css" />
-    <link rel="stylesheet" href="/css/surveys.css" />
     <title>Minor Web Enquete</title>
   </head>
   <body>
@@ -21,14 +20,6 @@
     </section>
 
     <main>
-      <% if(messages.length > 0 ) { %>
-      <ul>
-        <% messages.forEach(error => { %>
-        <li class="surveyError"><%- error %></li>
-        <% }); %>
-      </ul>
-      <% } %>
-
       <form action="/course" method="post">
         <label for="course">Vak: <%- chosenCourse %></label>
 

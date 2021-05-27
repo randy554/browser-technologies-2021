@@ -2,7 +2,23 @@
   color: green;
 }
 
+.pendingSurveys a {
+  color: gray;
+}
+
 .surveyError {
   color: red;
   list-style: none;
+}
+
+li {
+  list-style: none;
+}
+
+#toDoSurveys {
+  margin-bottom: 0;
+}
+
+#finishedSurveys {
+  margin-top: 0;
 }
