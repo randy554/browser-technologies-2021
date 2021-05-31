@@ -29,7 +29,7 @@ if (storageAvailable("localStorage")) {
   // Yippee! We can use localStorage awesomeness
   console.log("localStorage is available!");
   buildProfilePage();
-  localStorage.setItem("uncomplete", "data here");
+  // localStorage.setItem("uncomplete", "data here");
   getUncompletedSurvey();
 } else {
   // Too bad, no localStorage for us
@@ -54,7 +54,7 @@ function getUncompletedSurvey() {
     {
       enquetes: [
         {
-          courseName: "Progressive Web App",
+          courseName: "Progressive Web Apps",
           shortName: "pwa",
           answers: {
             week: "Week 5",
@@ -75,11 +75,18 @@ function getUncompletedSurvey() {
             rateLearning: "8",
           },
         },
+        {
+          courseName: "Browser Technologies",
+          shortName: "btech",
+          answers: {
+            when: "Week 20",
+          },
+        },
       ],
     },
   ];
 
-  localStorage.setItem("uncomplete", JSON.stringify(uncomplete));
+  // localStorage.setItem("uncomplete", JSON.stringify(uncomplete));
 
   // Is there anything in localStorage
   if (localStorage.getItem("uncomplete")) {
@@ -109,18 +116,12 @@ function getUncompletedSurvey() {
 // Get all uncomplete survey list from local storage
 function getSurveyList(localDB, studentName, studentNumber, surveyProgress) {
   let surveyList = localDB.map((item) => {
-    console.log(`${item.courseName}`);
-    console.log(
-      `/course/${item.shortName}/${studentName}/${studentNumber}/${surveyProgress}`
-    );
-
     return {
       course: `${item.courseName}`,
       link: `/course/${item.shortName}/${studentName}/${studentNumber}/${surveyProgress}`,
     };
   });
 
-  console.log("alles", surveyList);
   return surveyList;
 }
 
