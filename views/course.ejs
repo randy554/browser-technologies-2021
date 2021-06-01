@@ -24,6 +24,9 @@
         <label for="course">Vak: <%- chosenCourse %></label>
 
         <p>Docent</p>
+
+        <% if (chosenCourse == 'CSS To The Rescue') { %>
+
         <!-- CSS To The Rescue -->
         <input
           type="radio"
@@ -41,13 +44,17 @@
         />
         <label for="teacher2">Vasilis van Gemert</label><br /><br />
 
+        <% } else if (chosenCourse == 'Web Apps From Scratch') { %>
+
         <!-- Web Apps From Scratch -->
         <input type="radio" id="teacher3" name="teacher" value="Joost Faber" />
         <label for="teacher3">Joost Faber</label><br />
         <input type="radio" id="teacher4" name="teacher" value="Declan Rek" />
         <label for="teacher4">Declan Rek</label><br /><br />
 
-        <!-- Browser Tech -->
+        <% } else if (chosenCourse == 'Browser Technologies') { %>
+
+        <!-- Browser Technologies -->
         <input
           type="radio"
           id="teacher5"
@@ -63,11 +70,15 @@
         />
         <label for="teacher6">Koop Reynders</label><br /><br />
 
+        <% } else if (chosenCourse == 'Progressive Web Apps') { %>
+
         <!-- Progressive Web Apps -->
         <input type="radio" id="teacher7" name="teacher" value="Joost Faber" />
         <label for="teacher7">Joost Faber</label><br />
         <input type="radio" id="teacher8" name="teacher" value="Declan Rek" />
         <label for="teacher8">Declan Rek</label><br /><br />
+
+        <% } else if (chosenCourse == 'Human Centered Design') { %>
 
         <!-- Human Centered Design  -->
         <input
@@ -85,6 +96,7 @@
         />
         <label for="teacher10">Koop Reynders</label><br /><br />
 
+        <% } else if (chosenCourse == 'Real-Time Web') { %>
         <!--  Real-Time Web  -->
         <input
           type="radio"
@@ -100,6 +112,8 @@
           value="Lucas van Driel"
         />
         <label for="teacher12">Lucas van Driel</label><br /><br />
+
+        <% } %>
 
         <p>Perioden:</p>
         <input type="radio" id="week1" name="week" value="Week 5" />
