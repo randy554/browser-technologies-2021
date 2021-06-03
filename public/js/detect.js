@@ -68,7 +68,6 @@ function getUncompletedSurvey() {
           courseName: "CSS To The Rescue",
           shortName: "css",
           answers: {
-            when: "Week 15",
             teacher: "Declan",
             rateDifficulty: "8",
             rateExplanation: "9",
@@ -79,7 +78,7 @@ function getUncompletedSurvey() {
           courseName: "Browser Technologies",
           shortName: "btech",
           answers: {
-            when: "Week 20",
+            week: "Week 20",
           },
         },
       ],

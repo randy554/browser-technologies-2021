@@ -1,5 +1,19 @@
-let teacherEl = document.querySelectorAll('input[name="teacher"]');
 let chosenCourse = document.querySelector("#getChosenCourse").value;
+
+// Form input
+let teacherEl = document.querySelectorAll('input[name="teacher"]');
+let periodEl = document.querySelectorAll('input[name="week"]');
+
+// Rating input
+let difficultyEl = document.querySelector('input[name="rateDifficulty"]');
+let explanationEl = document.querySelector('input[name="rateExplanation"]');
+let learningEl = document.querySelector('input[name="rateLearning"]');
+
+// Submit btn
+let submitBtn = document.querySelector(['input[type="submit"]']);
+
+// Initialise temporary storage for all form answers
+let tempDB = tempStorage();
 
 // Listen & store teacher answer
 teacherEl.forEach((inputEl) => {
@@ -29,11 +43,15 @@ teacherEl.forEach((inputEl) => {
             // console.log("DBDB:", surveyData[index].answers.teacher);
             // surveyData[index].answers.teacher = evt.target.value;
             localStorage.setItem("uncomplete", JSON.stringify(surveyData));
+            // Store in memoryDB
+            tempDB.teacher = evt.target.value;
             console.log("DBDB:", surveyData);
           } else {
             console.log("Docent property NIET AANWEZIG");
             item.answers.teacher = evt.target.value;
             localStorage.setItem("uncomplete", JSON.stringify(surveyData));
+            // Store in memoryDB
+            tempDB.teacher = evt.target.value;
           }
         } else {
           console.log("Niet de gekozen vak");
@@ -44,6 +62,51 @@ teacherEl.forEach((inputEl) => {
     }
   });
 });
+
+// Liston to & store period answer
+periodEl.forEach((inputEl) => {
+  inputEl.addEventListener("change", function (evt) {
+    // Get data from local storage
+    let allData = getTheData();
+
+    console.log("All data:", allData);
+    console.log("Period:", evt.target.value);
+
+    // Are there surveys stored?
+    if (allData[0].enquetes) {
+      console.log("INPUT NAME:", evt.target.name);
+
+      // Go though all the surveys stored
+      allData[0].enquetes.forEach((item) => {
+        if (item.courseName == chosenCourse) {
+          console.log("Vak:", item.courseName);
+          console.log(
+            "WEEK property available?",
+            item.answers[evt.target.name]
+          );
+          if (item.answers[evt.target.name]) {
+            // Update week property with new value
+            item.answers[evt.target.name] = evt.target.value;
+            localStorage.setItem("uncomplete", JSON.stringify(allData));
+            // Store in memoryDB
+            tempDB[evt.target.name] = evt.target.value;
+          } else {
+            // Add new property & value to local storage object
+            item.answers[evt.target.name] = evt.target.value;
+            localStorage.setItem("uncomplete", JSON.stringify(allData));
+            // Store in memoryDB
+            tempDB[evt.target.name] = evt.target.value;
+          }
+        } else {
+          console.log("No survey data for chosen course:", chosenCourse);
+        }
+      });
+    } else {
+      console.log("No survey data in local storage");
+    }
+  });
+});
+
 // localStorage.setItem("uncomplete", JSON.stringify(uncomplete));
 // Check to see if ther is any survey data in local storage
 function getSurveyData() {
@@ -58,38 +121,63 @@ function getSurveyData() {
   }
 }
 
-let uncomplete = [
-  {
-    enquetes: [
-      {
-        courseName: "Progressive Web Apps",
-        shortName: "pwa",
-        answers: {
-          week: "Week 5",
-          teacher: "Declan",
-          rateDifficulty: "2",
-          rateExplanation: "8",
-          rateLearning: "6",
-        },
-      },
-      {
-        courseName: "CSS To The Rescue",
-        shortName: "css",
-        answers: {
-          when: "Week 15",
-          teacher: "Vasilis",
-          rateDifficulty: "8",
-          rateExplanation: "9",
-          rateLearning: "8",
-        },
-      },
-      {
-        courseName: "Browser Technologies",
-        shortName: "btech",
-        answers: {
-          when: "Week 20",
-        },
-      },
-    ],
-  },
-];
+// Check to see if ther is any survey data in local storage
+function getTheData() {
+  let check = JSON.parse(localStorage.getItem("uncomplete"));
+
+  if (check) {
+    console.log("er is iets!", check);
+    return check;
+  } else {
+    console.log("er is NIKS!");
+    return false;
+  }
+}
+
+submitBtn.addEventListener("click", function (evt) {
+  evt.preventDefault();
+  console.log("DB memory status:", tempDB);
+});
+
+function tempStorage() {
+  let tempStore = {};
+  return tempStorage;
+}
+
+function storeValue(evt) {
+  // Get data from local storage
+  let surveyData = JSON.parse(localStorage.getItem("uncomplete"));
+
+  // Are there surveys stored?
+  if (surveyData[0].enquetes) {
+    console.log("Data in local storage");
+
+    // Go though all the surveys stored
+    surveyData[0].enquetes.forEach((item) => {
+      // If current survey course found in local storage
+      if (chosenCourse == item.courseName) {
+        // If input property exist in local storage
+        // update value
+        if (item.answers[evt.target.name]) {
+          // Update week property with new value
+          item.answers[evt.target.name] = evt.target.value;
+          localStorage.setItem("uncomplete", JSON.stringify(surveyData));
+          // Store in memoryDB
+          tempDB[evt.target.name] = evt.target.value;
+        } else {
+          // Update week property with new value
+          item.answers[evt.target.name] = evt.target.value;
+          localStorage.setItem("uncomplete", JSON.stringify(surveyData));
+          // Store in memoryDB
+          tempDB[evt.target.name] = evt.target.value;
+        }
+      }
+    });
+  } else {
+    console.log("No data in local storage");
+  }
+}
+
+difficultyEl.addEventListener("change", storeValue);
+explanationEl.addEventListener("change", storeValue);
+learningEl.addEventListener("change", storeValue);
