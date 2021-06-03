@@ -181,3 +181,29 @@ function storeValue(evt) {
 difficultyEl.addEventListener("change", storeValue);
 explanationEl.addEventListener("change", storeValue);
 learningEl.addEventListener("change", storeValue);
+
+function getTempValuesFromLs(course) {
+  let surveyData = JSON.parse(localStorage.getItem("uncomplete"));
+
+  // Are there surveys stored?
+  if (surveyData[0].enquetes) {
+    console.log("Survey data in local storage, read from Local Storage");
+
+    return surveyData[0].enquetes.filter((surveyData) => {
+      if (course == surveyData.courseName) {
+        console.log(
+          `Chosencourse: ${course} & course from LS: ${surveyData.courseName}`
+        );
+        return surveyData.courseName;
+      }
+    });
+  } else {
+    return false;
+  }
+}
+
+if (getTempValuesFromLs(chosenCourse)) {
+  console.log("READY for input", getTempValuesFromLs(chosenCourse));
+} else {
+  console.log("No survey DATA in local storage for input");
+}
