@@ -58,7 +58,7 @@ function getUncompletedSurvey() {
           shortName: "pwa",
           answers: {
             week: "Week 5",
-            teacher: "Declan",
+            teacher: "Declan Rek",
             rateDifficulty: "2",
             rateExplanation: "8",
             rateLearning: "6",
@@ -68,7 +68,7 @@ function getUncompletedSurvey() {
           courseName: "CSS To The Rescue",
           shortName: "css",
           answers: {
-            teacher: "Declan",
+            teacher: "Vasilis van Gemert",
             rateDifficulty: "8",
             rateExplanation: "9",
             rateLearning: "8",
@@ -85,7 +85,7 @@ function getUncompletedSurvey() {
     },
   ];
 
-  // localStorage.setItem("uncomplete", JSON.stringify(uncomplete));
+  localStorage.setItem("uncomplete", JSON.stringify(uncomplete));
 
   // Is there anything in localStorage
   if (localStorage.getItem("uncomplete")) {
