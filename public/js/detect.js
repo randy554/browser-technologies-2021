@@ -29,7 +29,6 @@ if (storageAvailable("localStorage")) {
   // Yippee! We can use localStorage awesomeness
   console.log("localStorage is available!");
   buildProfilePage();
-  // localStorage.setItem("uncomplete", "data here");
   getUncompletedSurvey();
 } else {
   // Too bad, no localStorage for us
@@ -50,54 +49,60 @@ function buildProfilePage() {
 
 // Check local storage for uncompleted survey data
 function getUncompletedSurvey() {
+  // let uncomplete = [
+  //   {
+  //     enquetes: [
+  //       {
+  //         courseName: "Progressive Web Apps",
+  //         shortName: "pwa",
+  //         answers: {
+  //           week: "Week 5",
+  //           teacher: "Declan Rek",
+  //           rateDifficulty: "2",
+  //           rateExplanation: "8",
+  //           rateLearning: "6",
+  //         },
+  //       },
+  //       {
+  //         courseName: "CSS To The Rescue",
+  //         shortName: "css",
+  //         answers: {
+  //           teacher: "Vasilis van Gemert",
+  //           rateDifficulty: "8",
+  //           rateExplanation: "9",
+  //           rateLearning: "8",
+  //         },
+  //       },
+  //       {
+  //         courseName: "Browser Technologies",
+  //         shortName: "btech",
+  //         answers: {
+  //           week: "Week 20",
+  //         },
+  //       },
+  //     ],
+  //   },
+  // ];
   let uncomplete = [
     {
-      enquetes: [
-        {
-          courseName: "Progressive Web Apps",
-          shortName: "pwa",
-          answers: {
-            week: "Week 5",
-            teacher: "Declan Rek",
-            rateDifficulty: "2",
-            rateExplanation: "8",
-            rateLearning: "6",
-          },
-        },
-        {
-          courseName: "CSS To The Rescue",
-          shortName: "css",
-          answers: {
-            teacher: "Vasilis van Gemert",
-            rateDifficulty: "8",
-            rateExplanation: "9",
-            rateLearning: "8",
-          },
-        },
-        {
-          courseName: "Browser Technologies",
-          shortName: "btech",
-          answers: {
-            week: "Week 20",
-          },
-        },
-      ],
+      enquetes: [],
     },
   ];
+  // localStorage.setItem("uncomplete", JSON.stringify(uncomplete));
 
-  localStorage.setItem("uncomplete", JSON.stringify(uncomplete));
-
-  // Is there anything in localStorage
+  // Is there is anything in localStorage
   if (localStorage.getItem("uncomplete")) {
     console.log("There are uncompleted surveys");
+
+    // Get data from localStorage
     let check = JSON.parse(localStorage.getItem("uncomplete"));
 
-    // Get data user data from profile page
+    // Get user data from profile page
     let progressValue = document.querySelector("#getProgress").value;
     let studentNameValue = document.querySelector("#getStudentName").value;
     let studentNumberValue = document.querySelector("#getStudentNumber").value;
 
-    // Get all uncomplete survey list from local storage
+    // Get all uncomplete survey list from localStorage
     let survList = getSurveyList(
       check[0].enquetes,
       studentNameValue,
@@ -108,13 +113,21 @@ function getUncompletedSurvey() {
     // Add survey list to page
     addSurveyListToPage(survList);
   } else {
-    console.log("There are no uncompleted surveys");
+    console.log(
+      "There is no local storage for the project, so let's create a fresh setup"
+    );
+    localStorage.setItem("uncomplete", JSON.stringify(uncomplete));
   }
 }
 
-// Get all uncomplete survey list from local storage
-function getSurveyList(localDB, studentName, studentNumber, surveyProgress) {
-  let surveyList = localDB.map((item) => {
+// Return a list of all uncompleted surveys in localStorage
+function getSurveyList(
+  localStorage,
+  studentName,
+  studentNumber,
+  surveyProgress
+) {
+  let surveyList = localStorage.map((item) => {
     return {
       course: `${item.courseName}`,
       link: `/course/${item.shortName}/${studentName}/${studentNumber}/${surveyProgress}`,
@@ -124,7 +137,7 @@ function getSurveyList(localDB, studentName, studentNumber, surveyProgress) {
   return surveyList;
 }
 
-// Add survey list to page
+// Display list of uncompleted surveys on profile page
 function addSurveyListToPage(surveyL) {
   let ulEl = document.querySelector("#toDoSurveys");
 

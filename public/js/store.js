@@ -32,27 +32,24 @@ teacherEl.forEach((inputEl) => {
 
     // Are there surveys stored?
     if (allData[0].enquetes) {
+      // Go though all the surveys stored
       allData[0].enquetes.forEach((item) => {
         // Is there local Storage data about the selected course
         if (item.courseName == chosenCourse) {
           // If property exist in LS, assign new value
-          if (item.answers.teacher) {
-            console.log(
-              "Teacher property aanwezig, met waarde:",
-              item.answers.teacher
-            );
-            console.log("Nieuw geselecteerde waarde:", evt.target.value);
-            item.answers.teacher = evt.target.value;
+          if (item.answers[evt.target.name]) {
+            // Update property with new value
+            item.answers[evt.target.name] = evt.target.value;
             localStorage.setItem("uncomplete", JSON.stringify(allData));
             // Store in memoryDB
-            tempDB.teacher = evt.target.value;
+            tempDB[evt.target.name] = evt.target.value;
             console.log("DBDB:", allData);
           } else {
             console.log("Docent property NIET AANWEZIG");
-            item.answers.teacher = evt.target.value;
+            item.answers[evt.target.name] = evt.target.value;
             localStorage.setItem("uncomplete", JSON.stringify(allData));
             // Store in memoryDB
-            tempDB.teacher = evt.target.value;
+            tempDB[evt.target.name] = evt.target.value;
           }
         } else {
           console.log("Niet de gekozen vak");
@@ -178,17 +175,26 @@ function getTempValuesFromLs(course) {
   }
 }
 
-if (getTempValuesFromLs(chosenCourse)) {
-  console.log("READY for input", getTempValuesFromLs(chosenCourse));
+// Are there any temporal survey data in localStorage?
+if (getTempValuesFromLs(chosenCourse).length > 0) {
+  // Assign variable to work with survey data from localStorage
   const lsTempData = getTempValuesFromLs(chosenCourse);
 
+  console.log("Aantal VAKKEN:", lsTempData);
+
   // Go through all input fields on page
-  formInputFields.forEach((element, i) => {
+  formInputFields.forEach((element) => {
     console.log("BOSS:", element.length);
+    // If there is more than one input type + same name,
     if (element.length >= 1) {
+      // loop throug the input elements
       element.forEach((nodeListItem) => {
         console.log("A nodelist item:", nodeListItem);
+        // If the current element: input[name='?'] can be found in localStorage
+        // as a property in the answers object section
         if (lsTempData[0].answers.hasOwnProperty(nodeListItem.name)) {
+          // If the current element: input[value='?'] matches the property value
+          // in localStorage, then mark input element as true
           if (nodeListItem.value == lsTempData[0].answers[nodeListItem.name]) {
             nodeListItem.checked = true;
           }
