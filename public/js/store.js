@@ -32,34 +32,46 @@ teacherEl.forEach((inputEl) => {
 
     // Are there surveys stored?
     if (allData.status) {
-      // Go though all the surveys stored
-      allData.data[0].enquetes.forEach((item) => {
-        // Is there local Storage data about the selected course
-        if (item.courseName == chosenCourse) {
-          // If property exist in LS, assign new value
-          if (item.answers[evt.target.name]) {
-            // Update property with new value
-            item.answers[evt.target.name] = evt.target.value;
-            localStorage.setItem("uncomplete", JSON.stringify(allData.data));
-            // Store in memoryDB
-            tempDB[evt.target.name] = evt.target.value;
-            console.log("DBDB:", allData.data);
+      if (getTempValuesFromLs(chosenCourse).length > 0) {
+        // Go though all the surveys stored
+        allData.data[0].enquetes.forEach((item) => {
+          // console.log(
+          //   `DOCENTEN ITEM COURSE: ${item.courseName} - chosen course: ${chosenCourse}`
+          // );
+
+          // Is there local Storage data about the selected course
+          if (item.courseName == chosenCourse) {
+            // If property exist in LS, assign new value
+            if (item.answers[evt.target.name]) {
+              // Update property with new value
+              item.answers[evt.target.name] = evt.target.value;
+              localStorage.setItem("uncomplete", JSON.stringify(allData.data));
+              // Store in memoryDB
+              tempDB[evt.target.name] = evt.target.value;
+              console.log("DBDB:", allData.data);
+            } else {
+              console.log("Docent property NIET AANWEZIG");
+              item.answers[evt.target.name] = evt.target.value;
+              localStorage.setItem("uncomplete", JSON.stringify(allData.data));
+              // Store in memoryDB
+              tempDB[evt.target.name] = evt.target.value;
+            }
           } else {
-            console.log("Docent property NIET AANWEZIG");
-            item.answers[evt.target.name] = evt.target.value;
-            localStorage.setItem("uncomplete", JSON.stringify(allData.data));
-            // Store in memoryDB
-            tempDB[evt.target.name] = evt.target.value;
+            console.log("Niet de gekozen vak");
+            // allData.data[0].enquetes.push({
+            //   courseName: chosenCourse,
+            //   answers: { teacher: evt.target.value },
+            // });
+            // localStorage.setItem("uncomplete", JSON.stringify(allData.data));
           }
-        } else {
-          console.log("Niet de gekozen vak");
-          allData.data[0].enquetes.push({
-            courseName: chosenCourse,
-            answers: { teacher: evt.target.value },
-          });
-          localStorage.setItem("uncomplete", JSON.stringify(allData.data));
-        }
-      });
+        });
+      } else {
+        allData.data[0].enquetes.push({
+          courseName: chosenCourse,
+          answers: { teacher: evt.target.value },
+        });
+        localStorage.setItem("uncomplete", JSON.stringify(allData.data));
+      }
     } else {
       console.log("No survey data in local storage");
       let freshDB = allData.data;
@@ -79,39 +91,47 @@ periodEl.forEach((inputEl) => {
     // Get data from local storage
     let allData = getSurveyData();
 
-    console.log("SHOW ME THE MONEY!", allData);
+    console.log("SHOW ME THE MONEY!", allData.data[0]);
     // Are there surveys stored?
     if (allData.status) {
-      // Go though all the surveys stored
+      if (getTempValuesFromLs(chosenCourse).length > 0) {
+        // Go though all the surveys stored
+        allData.data[0].enquetes.forEach((item) => {
+          // Is there local Storage data about the selected course
 
-      allData.data[0].enquetes.forEach((item) => {
-        // Is there local Storage data about the selected course
-        console.log("YOYO:", item.courseName);
-
-        if (item.courseName == chosenCourse) {
-          // If property exist in LS, assign new value
-          if (item.answers[evt.target.name]) {
-            // Update week property with new value
-            item.answers[evt.target.name] = evt.target.value;
-            localStorage.setItem("uncomplete", JSON.stringify(allData.data));
-            // Store in memoryDB
-            tempDB[evt.target.name] = evt.target.value;
+          if (item.courseName == chosenCourse) {
+            // If property exist in LS, assign new value
+            console.log("INSIDE LIFE!:", evt.target.name);
+            if (item.answers[evt.target.name]) {
+              console.log("EINSTEIN:", item.answers[evt.target.name]);
+              // Update week property with new value
+              item.answers[evt.target.name] = evt.target.value;
+              localStorage.setItem("uncomplete", JSON.stringify(allData.data));
+              // Store in memoryDB
+              tempDB[evt.target.name] = evt.target.value;
+            } else {
+              // Add new property & value to local storage object
+              item.answers[evt.target.name] = evt.target.value;
+              localStorage.setItem("uncomplete", JSON.stringify(allData.data));
+              // Store in memoryDB
+              tempDB[evt.target.name] = evt.target.value;
+            }
           } else {
-            // Add new property & value to local storage object
-            item.answers[evt.target.name] = evt.target.value;
-            localStorage.setItem("uncomplete", JSON.stringify(allData.data));
-            // Store in memoryDB
-            tempDB[evt.target.name] = evt.target.value;
+            console.log("No survey data for chosen course:", chosenCourse);
+            // allData.data[0].enquetes.push({
+            //   courseName: chosenCourse,
+            //   answers: { week: evt.target.value },
+            // });
+            // localStorage.setItem("uncomplete", JSON.stringify(allData.data));
           }
-        } else {
-          console.log("No survey data for chosen course:", chosenCourse);
-          allData.data[0].enquetes.push({
-            courseName: chosenCourse,
-            answers: { week: evt.target.value },
-          });
-          localStorage.setItem("uncomplete", JSON.stringify(allData.data));
-        }
-      });
+        });
+      } else {
+        allData.data[0].enquetes.push({
+          courseName: chosenCourse,
+          answers: { week: evt.target.value },
+        });
+        localStorage.setItem("uncomplete", JSON.stringify(allData.data));
+      }
     } else {
       console.log("No survey data in local storage");
       let freshDB = allData.data;
@@ -158,6 +178,7 @@ function tempStorage() {
 function storeValue(evt) {
   // Get data from local storage
   let surveyData = JSON.parse(localStorage.getItem("uncomplete"));
+  console.log("AJAX", surveyData);
 
   // Are there surveys stored?
   if (surveyData[0].enquetes) {
