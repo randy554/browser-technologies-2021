@@ -25,6 +25,17 @@ function storageAvailable(type) {
   }
 }
 
+let shortNm = [
+  {
+    "Human Centered Design": "hcd",
+    "Progressive Web Apps": "pwa",
+    "CSS To The Rescue": "css",
+    "Browser Technologies": "btech",
+    "Real-Time Web": "realtime",
+    "Web Apps From Scratch": "wafs",
+  },
+];
+
 if (storageAvailable("localStorage")) {
   // Yippee! We can use localStorage awesomeness
   console.log("localStorage is available!");
@@ -128,10 +139,14 @@ function getSurveyList(
   surveyProgress
 ) {
   let surveyList = localStorage.map((item) => {
-    return {
-      course: `${item.courseName}`,
-      link: `/course/${item.shortName}/${studentName}/${studentNumber}/${surveyProgress}`,
-    };
+    if (shortNm[0].hasOwnProperty(item.courseName)) {
+      return {
+        course: `${item.courseName}`,
+        link: `/course/${
+          shortNm[0][item.courseName]
+        }/${studentName}/${studentNumber}/${surveyProgress}`,
+      };
+    }
   });
 
   return surveyList;

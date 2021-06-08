@@ -31,32 +31,44 @@ teacherEl.forEach((inputEl) => {
     let allData = getSurveyData();
 
     // Are there surveys stored?
-    if (allData[0].enquetes) {
+    if (allData.status) {
       // Go though all the surveys stored
-      allData[0].enquetes.forEach((item) => {
+      allData.data[0].enquetes.forEach((item) => {
         // Is there local Storage data about the selected course
         if (item.courseName == chosenCourse) {
           // If property exist in LS, assign new value
           if (item.answers[evt.target.name]) {
             // Update property with new value
             item.answers[evt.target.name] = evt.target.value;
-            localStorage.setItem("uncomplete", JSON.stringify(allData));
+            localStorage.setItem("uncomplete", JSON.stringify(allData.data));
             // Store in memoryDB
             tempDB[evt.target.name] = evt.target.value;
-            console.log("DBDB:", allData);
+            console.log("DBDB:", allData.data);
           } else {
             console.log("Docent property NIET AANWEZIG");
             item.answers[evt.target.name] = evt.target.value;
-            localStorage.setItem("uncomplete", JSON.stringify(allData));
+            localStorage.setItem("uncomplete", JSON.stringify(allData.data));
             // Store in memoryDB
             tempDB[evt.target.name] = evt.target.value;
           }
         } else {
           console.log("Niet de gekozen vak");
+          allData.data[0].enquetes.push({
+            courseName: chosenCourse,
+            answers: { teacher: evt.target.value },
+          });
+          localStorage.setItem("uncomplete", JSON.stringify(allData.data));
         }
       });
     } else {
-      console.log("no man", allData);
+      console.log("No survey data in local storage");
+      let freshDB = allData.data;
+      console.log("eeeeYYY", freshDB[0].enquetes);
+      freshDB[0].enquetes.push({
+        courseName: chosenCourse,
+        answers: { teacher: evt.target.value },
+      });
+      localStorage.setItem("uncomplete", JSON.stringify(freshDB));
     }
   });
 });
@@ -67,32 +79,48 @@ periodEl.forEach((inputEl) => {
     // Get data from local storage
     let allData = getSurveyData();
 
+    console.log("SHOW ME THE MONEY!", allData);
     // Are there surveys stored?
-    if (allData[0].enquetes) {
+    if (allData.status) {
       // Go though all the surveys stored
-      allData[0].enquetes.forEach((item) => {
+
+      allData.data[0].enquetes.forEach((item) => {
         // Is there local Storage data about the selected course
+        console.log("YOYO:", item.courseName);
+
         if (item.courseName == chosenCourse) {
           // If property exist in LS, assign new value
           if (item.answers[evt.target.name]) {
             // Update week property with new value
             item.answers[evt.target.name] = evt.target.value;
-            localStorage.setItem("uncomplete", JSON.stringify(allData));
+            localStorage.setItem("uncomplete", JSON.stringify(allData.data));
             // Store in memoryDB
             tempDB[evt.target.name] = evt.target.value;
           } else {
             // Add new property & value to local storage object
             item.answers[evt.target.name] = evt.target.value;
-            localStorage.setItem("uncomplete", JSON.stringify(allData));
+            localStorage.setItem("uncomplete", JSON.stringify(allData.data));
             // Store in memoryDB
             tempDB[evt.target.name] = evt.target.value;
           }
         } else {
           console.log("No survey data for chosen course:", chosenCourse);
+          allData.data[0].enquetes.push({
+            courseName: chosenCourse,
+            answers: { week: evt.target.value },
+          });
+          localStorage.setItem("uncomplete", JSON.stringify(allData.data));
         }
       });
     } else {
       console.log("No survey data in local storage");
+      let freshDB = allData.data;
+      console.log("yoooOO", freshDB[0].enquetes);
+      freshDB[0].enquetes.push({
+        courseName: chosenCourse,
+        answers: { week: evt.target.value },
+      });
+      localStorage.setItem("uncomplete", JSON.stringify(freshDB));
     }
   });
 });
@@ -104,9 +132,15 @@ function getSurveyData() {
 
   if (check) {
     console.log("er is iets!", check);
-    return check;
+
+    // Is there any data in de survey section?
+    if (check[0].enquetes.length > 0) {
+      return { status: true, data: check };
+    } else {
+      return { status: false, data: check };
+    }
   } else {
-    console.log("er is NIKS!");
+    console.log("er is helemaal niks in LS!");
     return false;
   }
 }
