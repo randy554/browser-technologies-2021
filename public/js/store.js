@@ -4,6 +4,11 @@ let chosenCourse = document.querySelector("#getChosenCourse").value;
 let teacherEl = document.querySelectorAll('input[name="teacher"]');
 let periodEl = document.querySelectorAll('input[name="week"]');
 
+// Hidden input
+let progress = document.querySelector('input[name="progressValue"]').value;
+let studentNumber = document.querySelector('input[name="studentNumber"]').value;
+let studentName = document.querySelector('input[name="studentName"]').value;
+
 // Rating input
 let difficultyEl = document.querySelector('input[name="rateDifficulty"]');
 let explanationEl = document.querySelector('input[name="rateExplanation"]');
@@ -167,12 +172,49 @@ function getSurveyData() {
 
 submitBtn.addEventListener("click", function (evt) {
   evt.preventDefault();
-  console.log("DB memory status:", tempDB);
+
+  // Get filled input values
+  const teacherVal = document.querySelector(
+    'input[name="teacher"]:checked'
+  ).value;
+
+  const periodVal = document.querySelector('input[name="week"]:checked').value;
+
+  const difficultyVal = document.querySelector(
+    'input[name="rateDifficulty"]'
+  ).value;
+  const explanationVal = document.querySelector(
+    'input[name="rateExplanation"]'
+  ).value;
+  const learningVal = document.querySelector(
+    'input[name="rateLearning"]'
+  ).value;
+
+  const data = {
+    studentName: studentName,
+    studentNumber: studentNumber,
+    progress: progress,
+    chosenCourse: chosenCourse,
+    teacherInput: teacherVal,
+    periodInput: periodVal,
+    difficultyInput: difficultyVal,
+    explanationInput: explanationVal,
+    learningInput: learningVal,
+  };
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  };
+  fetch("/coursejs", options);
+  console.log("Data sent to server:", data);
 });
 
 function tempStorage() {
   let tempStore = {};
-  return tempStorage;
+  return tempStore;
 }
 
 function storeValue(evt) {

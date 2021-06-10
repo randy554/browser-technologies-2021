@@ -12,6 +12,7 @@ app.set("views", "views");
 
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 app.get("/", (req, res) => {
   console.log("index route:GET");
@@ -422,6 +423,10 @@ app.post("/course", (req, res) => {
       resterendeVakken: 0,
     });
   }
+});
+
+app.post("/coursejs", (req, res) => {
+  console.log("MAGIC!", req.body);
 });
 
 app.post("/assesment", (req, res) => {
