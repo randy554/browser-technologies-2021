@@ -170,6 +170,7 @@ function getSurveyData() {
   }
 }
 
+// When user submits form
 submitBtn.addEventListener("click", function (evt) {
   evt.preventDefault();
 
@@ -190,6 +191,7 @@ submitBtn.addEventListener("click", function (evt) {
     'input[name="rateLearning"]'
   ).value;
 
+  // Retrieved form data
   const data = {
     studentName: studentName,
     studentNr: studentNumber,
@@ -201,6 +203,8 @@ submitBtn.addEventListener("click", function (evt) {
     rateExplanation: explanationVal,
     rateLearning: learningVal,
   };
+
+  // Fetch options
   const options = {
     method: "POST",
     headers: {
@@ -208,10 +212,13 @@ submitBtn.addEventListener("click", function (evt) {
     },
     body: JSON.stringify(data),
   };
-  alert("loader here!");
-  fetch("/coursejs", options).then((res) => {
-    console.log(res);
-  });
+
+  // Send form data to backend
+  // fetch("/coursejs", options).then((res) => {
+  //   console.log(res);
+  // });
+
+  deleteSurveyDataFromLs(chosenCourse);
   console.log("Data sent to server:", data);
 });
 
@@ -223,11 +230,11 @@ function tempStorage() {
 function storeValue(evt) {
   // Get data from local storage
   let surveyData = JSON.parse(localStorage.getItem("uncomplete"));
-  console.log("AJAX", surveyData);
+  // console.log("AJAX", surveyData);
 
   // Are there surveys stored?
   if (surveyData[0].enquetes) {
-    console.log("Data in local storage");
+    // console.log("Data in local storage");
 
     // Go though all the surveys stored
     surveyData[0].enquetes.forEach((item) => {
@@ -272,6 +279,27 @@ function getTempValuesFromLs(course) {
     });
   } else {
     return false;
+  }
+}
+
+// Remove course survey data from localStorage
+function deleteSurveyDataFromLs(course) {
+  // Get localStorage survey data
+  let surveyData = JSON.parse(localStorage.getItem("uncomplete"));
+
+  console.log("DB voor delete:", surveyData);
+
+  // Create new survey list without selected course
+  if (surveyData[0].enquetes) {
+    let deletedSurveyList = surveyData[0].enquetes.filter((item) => {
+      if (item.courseName != course) {
+        return item;
+      }
+    });
+    console.log("DB na delete:", deletedSurveyList);
+    // Save new list to localStorage
+    surveyData[0].enquetes = deletedSurveyList;
+    localStorage.setItem("uncomplete", JSON.stringify(surveyData));
   }
 }
 
