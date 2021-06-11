@@ -192,14 +192,14 @@ submitBtn.addEventListener("click", function (evt) {
 
   const data = {
     studentName: studentName,
-    studentNumber: studentNumber,
+    studentNr: studentNumber,
     progress: progress,
     chosenCourse: chosenCourse,
-    teacherInput: teacherVal,
-    periodInput: periodVal,
-    difficultyInput: difficultyVal,
-    explanationInput: explanationVal,
-    learningInput: learningVal,
+    chosenTeacher: teacherVal,
+    week: periodVal,
+    rateDifficulty: difficultyVal,
+    rateExplanation: explanationVal,
+    rateLearning: learningVal,
   };
   const options = {
     method: "POST",
@@ -208,7 +208,10 @@ submitBtn.addEventListener("click", function (evt) {
     },
     body: JSON.stringify(data),
   };
-  fetch("/coursejs", options);
+  alert("loader here!");
+  fetch("/coursejs", options).then((res) => {
+    console.log(res);
+  });
   console.log("Data sent to server:", data);
 });
 

@@ -41,12 +41,11 @@
     "studentName": "Ronaldo",
     "studentNumber": "999999999",
     "courses": {
-      "css": "CSS To The Rescue",
       "wafs": "Web Apps From Scratch",
       "pwa": "Progressive Web Apps",
       "btech": "Browser Technologies"
     },
-    "progress": 2
+    "progress": 3
   },
   {
     "studentName": "Ronaldo",
@@ -86,5 +85,15 @@
       "hcd": "Human Centered Design"
     },
     "progress": 0
+  },
+  {
+    "studentName": "Ronaldo",
+    "studentNumber": "999999999",
+    "chosenCourse": "CSS To The Rescue",
+    "chosenTeacher": "Vasilis van Gemert",
+    "week": "Week 5",
+    "rateDifficulty": "2",
+    "rateExplanation": "2",
+    "rateLearning": "2"
   }
 ]
