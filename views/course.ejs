@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/progress.css" />
+    <link rel="stylesheet" href="/css/loader.css" />
     <title>Minor Web Enquete</title>
   </head>
   <body>
@@ -171,7 +172,15 @@
         <input type="hidden" name="studentNumber" value="<%- studentNr %>" />
         <input type="hidden" name="progressValue" value="<%- progress %>" />
         <input type="hidden" name="afterSurvey" value="<%- progress %>" />
-        <input type="submit" value="Opslaan" />
+        <div class="loader_block">
+          <input type="submit" value="Opslaan" />
+          <div class="loader"></div>
+          <img
+            class="check_mark"
+            src="/images/check-mark.png"
+            alt="check mark"
+          />
+        </div>
       </form>
     </main>
     <%- include('partials/coursefooter'); %>

@@ -3,7 +3,10 @@
     "studentName": "Randy",
     "studentNumber": "500621572",
     "chosenCourse": "Browser Technologies",
-    "chosenTeacher": ["Koop Reynders", "Peter Paul Koch"],
+    "chosenTeacher": [
+      "Koop Reynders",
+      "Peter Paul Koch"
+    ],
     "week": "Week 15",
     "rateDifficulty": "8",
     "rateExplanation": "8",
@@ -25,7 +28,10 @@
     "studentName": "Messi",
     "studentNumber": "100000000",
     "chosenCourse": "CSS To The Rescue",
-    "chosenTeacher": ["Peter Paul Koch", "Joost Faber"],
+    "chosenTeacher": [
+      "Peter Paul Koch",
+      "Joost Faber"
+    ],
     "week": "Week 10",
     "rateDifficulty": "6",
     "rateExplanation": "5",
@@ -37,16 +43,18 @@
     "courses": {
       "wafs": "Web Apps From Scratch",
       "pwa": "Progressive Web Apps",
-      "css": "CSS To The Rescue",
-      "btech": "Browser Technologies"
+      "css": "CSS To The Rescue"
     },
-    "progress": 2
+    "progress": 3
   },
   {
     "studentName": "Ronaldo",
     "studentNumber": "999999999",
     "chosenCourse": "Human Centered Design",
-    "chosenTeacher": ["Peter Paul Koch", "Vasilis van Gemert"],
+    "chosenTeacher": [
+      "Peter Paul Koch",
+      "Vasilis van Gemert"
+    ],
     "week": "Week 5",
     "rateDifficulty": "3",
     "rateExplanation": "4",
@@ -56,7 +64,10 @@
     "studentName": "Ronaldo",
     "studentNumber": "999999999",
     "chosenCourse": "Real-Time Web",
-    "chosenTeacher": ["Koop Reynders", "Peter Paul Koch"],
+    "chosenTeacher": [
+      "Koop Reynders",
+      "Peter Paul Koch"
+    ],
     "week": "Week 5",
     "rateDifficulty": "6",
     "rateExplanation": "5",
@@ -74,5 +85,15 @@
       "hcd": "Human Centered Design"
     },
     "progress": 0
+  },
+  {
+    "studentName": "Ronaldo",
+    "studentNumber": "999999999",
+    "chosenCourse": "Browser Technologies",
+    "chosenTeacher": "Koop Reynders",
+    "week": "Week 5",
+    "rateDifficulty": "7",
+    "rateExplanation": "7",
+    "rateLearning": "7"
   }
 ]

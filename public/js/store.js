@@ -174,6 +174,9 @@ function getSurveyData() {
 submitBtn.addEventListener("click", function (evt) {
   evt.preventDefault();
 
+  // Display loading animation
+  toggleLoader("on");
+
   // Get filled input values
   const teacherVal = document.querySelector(
     'input[name="teacher"]:checked'
@@ -214,10 +217,17 @@ submitBtn.addEventListener("click", function (evt) {
   };
 
   // Send form data to backend
-  // fetch("/coursejs", options).then((res) => {
-  //   console.log(res);
-  // });
+  fetch("/coursejs", options).then((res) => {
+    console.log(res);
 
+    // Display loading animation
+    toggleLoader("off");
+
+    // Display checkmark icon
+    toggleCheckMark("on");
+  });
+
+  // Delete survey from localStorage
   deleteSurveyDataFromLs(chosenCourse);
   console.log("Data sent to server:", data);
 });
@@ -336,4 +346,20 @@ if (getTempValuesFromLs(chosenCourse).length > 0) {
   });
 } else {
   console.log("No survey DATA in local storage for input");
+}
+
+function toggleLoader(state) {
+  if (state === "on") {
+    document.querySelector(".loader").style.display = "flex";
+  } else if (state === "off") {
+    document.querySelector(".loader").style.display = "none";
+  }
+}
+
+function toggleCheckMark(state) {
+  if (state === "on") {
+    document.querySelector(".check_mark").style.display = "flex";
+  } else if (state === "off") {
+    document.querySelector(".check_mark").style.display = "none";
+  }
 }

@@ -1,0 +1,33 @@
+.loader {
+  display: none;
+  border: 0.2em solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 0.2em solid #0f39cf;
+  width: 1.5em;
+  height: 1.5em;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loader_block {
+  display: flex;
+}
+
+[type="submit"] {
+  margin-right: 1em;
+}
+
+.check_mark {
+  display: none;
+  width: 1.5em;
+  height: 1.5em;
+}
