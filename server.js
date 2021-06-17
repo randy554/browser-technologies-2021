@@ -428,101 +428,125 @@ app.post("/course", (req, res) => {
 app.post("/coursejs", (req, res) => {
   console.log("MAGIC!", req.body);
 
-  // Get all data from database.json file
-  let data = fs.readFileSync(path.resolve("database.json"));
-  data = JSON.parse(data);
+  // // Get all data from database.json file
+  // let data = fs.readFileSync(path.resolve("database.json"));
+  // data = JSON.parse(data);
 
-  // check to see if studentnr is already in database.json
-  let findStudNr = data.filter((value) => {
-    if (
-      value.studentNumber == req.body.studentNr &&
-      value.studentName == req.body.studentName
-    ) {
-      return value;
-    }
-  });
+  // // check to see if studentnr is already in database.json
+  // let findStudNr = data.filter((value) => {
+  //   if (
+  //     value.studentNumber == req.body.studentNr &&
+  //     value.studentName == req.body.studentName
+  //   ) {
+  //     return value;
+  //   }
+  // });
 
-  let chosen = "";
+  // let chosen = "";
 
-  // Determine which survey was taken
-  if (req.body.chosenCourse == "Progressive Web Apps") {
-    chosen = "pwa";
-  }
+  // // Determine which survey was taken
+  // if (req.body.chosenCourse == "Progressive Web Apps") {
+  //   chosen = "pwa";
+  // }
 
-  if (req.body.chosenCourse == "CSS To The Rescue") {
-    chosen = "css";
-  }
+  // if (req.body.chosenCourse == "CSS To The Rescue") {
+  //   chosen = "css";
+  // }
 
-  if (req.body.chosenCourse == "Browser Technologies") {
-    chosen = "btech";
-  }
+  // if (req.body.chosenCourse == "Browser Technologies") {
+  //   chosen = "btech";
+  // }
 
-  if (req.body.chosenCourse == "Real-Time Web") {
-    chosen = "realtime";
-  }
+  // if (req.body.chosenCourse == "Real-Time Web") {
+  //   chosen = "realtime";
+  // }
 
-  if (req.body.chosenCourse == "Web Apps From Scratch") {
-    chosen = "wafs";
-  }
+  // if (req.body.chosenCourse == "Web Apps From Scratch") {
+  //   chosen = "wafs";
+  // }
 
-  if (req.body.chosenCourse == "Human Centered Design") {
-    chosen = "hcd";
-  }
+  // if (req.body.chosenCourse == "Human Centered Design") {
+  //   chosen = "hcd";
+  // }
 
-  // Delete completed survey from the student's survey list
-  let coursesToDo = data.map((course) => {
-    if (
-      course.studentNumber == req.body.studentNr &&
-      course.studentName == req.body.studentName &&
-      course.hasOwnProperty("courses")
-    ) {
-      for (const property in course.courses) {
-        console.log(`Property: ${property} - Chosen: ${chosen}`);
-        if (property == chosen) {
-          console.log(`deleted: ${course.courses[property]}`);
-          delete course.courses[property];
-        }
-      }
-    }
-    return course;
-  });
+  // // Delete completed survey from the student's survey list
+  // let coursesToDo = data.map((course) => {
+  //   if (
+  //     course.studentNumber == req.body.studentNr &&
+  //     course.studentName == req.body.studentName &&
+  //     course.hasOwnProperty("courses")
+  //   ) {
+  //     for (const property in course.courses) {
+  //       console.log(`Property: ${property} - Chosen: ${chosen}`);
+  //       if (property == chosen) {
+  //         console.log(`deleted: ${course.courses[property]}`);
+  //         delete course.courses[property];
+  //       }
+  //     }
+  //   }
+  //   return course;
+  // });
 
-  // Update users suvey progress
-  data.forEach((update) => {
-    if (
-      update.studentNumber == req.body.studentNr &&
-      update.studentName == req.body.studentName &&
-      update.hasOwnProperty("courses")
-    ) {
-      console.log("Update 1:", update.progress);
-      update.progress = update.progress + 1;
-      console.log("Update 2:", update.progress);
-    }
-  });
+  // // Update users suvey progress
+  // data.forEach((update) => {
+  //   if (
+  //     update.studentNumber == req.body.studentNr &&
+  //     update.studentName == req.body.studentName &&
+  //     update.hasOwnProperty("courses")
+  //   ) {
+  //     console.log("Update 1:", update.progress);
+  //     update.progress = update.progress + 1;
+  //     console.log("Update 2:", update.progress);
+  //   }
+  // });
 
-  // Organize user answers for storage
-  let userAnswers = {
-    studentName: req.body.studentName,
-    studentNumber: req.body.studentNr,
-    chosenCourse: req.body.chosenCourse,
-    chosenTeacher: req.body.chosenTeacher,
-    week: req.body.week,
-    rateDifficulty: req.body.rateDifficulty,
-    rateExplanation: req.body.rateExplanation,
-    rateLearning: req.body.rateLearning,
-  };
+  // // Organize user answers for storage
+  // let userAnswers = {
+  //   studentName: req.body.studentName,
+  //   studentNumber: req.body.studentNr,
+  //   chosenCourse: req.body.chosenCourse,
+  //   chosenTeacher: req.body.chosenTeacher,
+  //   week: req.body.week,
+  //   rateDifficulty: req.body.rateDifficulty,
+  //   rateExplanation: req.body.rateExplanation,
+  //   rateLearning: req.body.rateLearning,
+  // };
 
-  // Add new user data to the array
-  data.push(userAnswers);
+  // // Add new user data to the array
+  // data.push(userAnswers);
 
-  // Save modified data to database.json file
-  let save = fs.writeFileSync(
-    path.resolve("database.json"),
-    JSON.stringify(data, null, 2)
-  );
+  // // Save modified data to database.json file
+  // let save = fs.writeFileSync(
+  //   path.resolve("database.json"),
+  //   JSON.stringify(data, null, 2)
+  // );
 
-  console.log("Successfully the end!");
-  res.json("data stored!");
+  // // Get remaining course(s) from user
+  // let courseNext = data.map((nextCourse) => {
+  //   if (
+  //     nextCourse.studentNumber == req.body.studentNr &&
+  //     nextCourse.studentName == req.body.studentName &&
+  //     nextCourse.hasOwnProperty("courses")
+  //   ) {
+  //     for (const property in nextCourse.courses) {
+  //       if (nextCourse.courses[property] != req.body.chosenCourse) {
+  //         console.log(`RETURN: ${nextCourse.courses[property]}`);
+  //         return nextCourse.courses[property];
+  //       }
+  //     }
+  //   }
+  // });
+
+  // // console.log("Dit is it:", courseNext);
+  // let theCourse = courseNext.filter((value) => {
+  //   if (value != "undefined") {
+  //     return value;
+  //   }
+  // });
+
+  // console.log("Successfully the end!");
+  // res.json({ nextCourse: theCourse[0] });
+  res.json({ nextCourse: "Progressive Web Apps" });
 });
 
 app.post("/assesment", (req, res) => {

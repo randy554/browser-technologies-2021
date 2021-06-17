@@ -1,5 +1,5 @@
 let chosenCourse = document.querySelector("#getChosenCourse").value;
-
+let loaderBlock = document.querySelector(".loader_block");
 // Form input
 let teacherEl = document.querySelectorAll('input[name="teacher"]');
 let periodEl = document.querySelectorAll('input[name="week"]');
@@ -207,6 +207,60 @@ submitBtn.addEventListener("click", function (evt) {
     rateLearning: learningVal,
   };
 
+  // Create next course to be taken button
+  function createNextSurveyElements(rootElement, courseName, currentSubmitBn) {
+    // Remove checkMark
+    toggleCheckMark("off");
+    // Remove current submit button from block
+    currentSubmitBn.style.display = "none";
+
+    // Create button & set attributes
+    let input = document.createElement("input");
+    input.setAttribute("type", "submit");
+    input.setAttribute("class", "nextSurveyBtn");
+    input.setAttribute("value", courseName);
+
+    // Create description text: Volgende enquete?
+    let text = document.createElement("p");
+    text.innerText = "Volgende enquete?";
+    let br = document.createElement("br");
+    let anotherBr = document.createElement("br");
+
+    // Create link to profile page here: Terug naar overzicht
+    let link = document.createElement("a");
+    link.innerText = "Terug naar het overzicht";
+
+    // Gebruiker bestaat
+    // =========================================
+    // res.render("profile", {
+    //   progress: ++req.body.progressValue,
+    //   hasSurveyAnswers: finishedSurvey,
+    //   resterendeVakken: clean[0],
+    //   studentName: req.body.studentName,
+    //   studentNumber: req.body.studentNumber,
+    // });
+
+    // Gebruiker bestaat nog niet
+    // =========================================
+    // res.render("profile", {
+    //   progress: status[0].progress,
+    //   hasSurveyAnswers: hasCourse,
+    //   studentName: req.body.studentName,
+    //   studentNumber: req.body.studentNr,
+    //   resterendeVakken: clean[0],
+    // });
+
+    // Get request
+    link.setAttribute("href", "/course");
+
+    // Position created elements on page
+    rootElement.insertAdjacentElement("afterend", link);
+    rootElement.insertAdjacentElement("afterend", br);
+    rootElement.insertAdjacentElement("afterend", anotherBr);
+    rootElement.insertAdjacentElement("afterend", input);
+    rootElement.insertAdjacentElement("afterend", text);
+  }
+
   // Fetch options
   const options = {
     method: "POST",
@@ -217,18 +271,28 @@ submitBtn.addEventListener("click", function (evt) {
   };
 
   // Send form data to backend
-  fetch("/coursejs", options).then((res) => {
-    console.log(res);
+  fetch("/coursejs", options)
+    .then((res) => {
+      // console.log(res.json());
 
-    // Display loading animation
-    toggleLoader("off");
+      // Display loading animation
+      toggleLoader("off");
 
-    // Display checkmark icon
-    toggleCheckMark("on");
-  });
+      // Display checkmark icon
+      toggleCheckMark("on");
+      return res.json();
+    })
+    .then((nextCourse) => {
+      console.log("This is the final then:");
+      console.log(nextCourse);
+      let courseTodo = nextCourse.nextCourse;
+      console.log("Next course todo: ", courseTodo);
+
+      createNextSurveyElements(loaderBlock, courseTodo, submitBtn);
+    });
 
   // Delete survey from localStorage
-  deleteSurveyDataFromLs(chosenCourse);
+  // deleteSurveyDataFromLs(chosenCourse);
   console.log("Data sent to server:", data);
 });
 

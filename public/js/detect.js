@@ -55,7 +55,11 @@ function buildProfilePage() {
     "Overzicht enquetes");
   let toDoTitle = (document.querySelector("#toDoTitle").innerText = "Vakken");
   document.querySelector("#toDoTitle").style.fontWeight = "bold";
-  let afgerondTitle = document.querySelector("#afgerondTitle").remove();
+  // let afgerondTitle = document.querySelector("#afgerondTitle").remove();
+  let afgerondTitle = document.querySelector("#afgerondTitle");
+  if (afgerondTitle) {
+    afgerondTitle.remove();
+  }
 }
 
 // Check local storage for uncompleted survey data
