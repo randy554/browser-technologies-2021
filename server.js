@@ -105,12 +105,66 @@ app.get("/course/:coursename/:stdname/:stdnr/:progress", (req, res) => {
       studentNr: req.params.stdnr,
     });
   }
+});
 
-  // res.render("course", {
-  //   chosenCourse: req.params.coursename,
-  //   studentName: req.params.stdname,
-  //   studentNr: req.params.stdnr,
-  // });
+app.post("/nextcoursejs", (req, res) => {
+  console.log("Request from nextCourse", req.body);
+
+  if (req.body.chosenCourse == "Human Centered Design") {
+    res.render("nextcourse", {
+      progress: ++req.body.progressValue,
+      chosenCourse: "Human Centered Design",
+      studentName: req.body.studentName,
+      studentNr: req.body.studentNumber,
+      currentCourse: "Human Centered Design",
+    });
+  }
+  if (req.body.chosenCourse == "Progressive Web Apps") {
+    res.render("nextcourse", {
+      progress: ++req.body.progressValue,
+      chosenCourse: "Progressive Web Apps",
+      studentName: req.body.studentName,
+      studentNr: req.body.studentNumber,
+      currentCourse: "Progressive Web Apps",
+    });
+  }
+  if (req.body.chosenCourse == "CSS To The Rescue") {
+    res.render("nextcourse", {
+      progress: ++req.body.progressValue,
+      chosenCourse: "CSS To The Rescue",
+      studentName: req.body.studentName,
+      studentNr: req.body.studentNumber,
+      currentCourse: "CSS To The Rescue",
+    });
+  }
+  if (req.body.chosenCourse == "Browser Technologies") {
+    res.render("nextcourse", {
+      progress: ++req.body.progressValue,
+      chosenCourse: "Browser Technologies",
+      studentName: req.body.studentName,
+      studentNr: req.body.studentNumber,
+      currentCourse: "Browser Technologies",
+    });
+  }
+  if (req.body.chosenCourse == "Real-Time Web") {
+    res.render("nextcourse", {
+      progress: ++req.body.progressValue,
+      chosenCourse: "Real-Time Web",
+      studentName: req.body.studentName,
+      studentNr: req.body.studentNumber,
+      currentCourse: "Real-Time Web",
+    });
+  }
+  if (req.body.chosenCourse == "Web Apps From Scratch") {
+    res.render("course", {
+      progress: ++req.body.progressValue,
+      chosenCourse: "Web Apps From Scratch",
+      studentName: req.body.studentName,
+      studentNr: req.body.studentNumber,
+      currentCourse: "Web Apps From Scratch",
+    });
+  }
+  // res.json({ status: true });
 });
 
 app.post("/course", (req, res) => {
@@ -428,65 +482,85 @@ app.post("/course", (req, res) => {
 app.post("/coursejs", (req, res) => {
   console.log("MAGIC!", req.body);
 
-  // // Get all data from database.json file
-  // let data = fs.readFileSync(path.resolve("database.json"));
-  // data = JSON.parse(data);
+  // Get all data from database.json file
+  let data = fs.readFileSync(path.resolve("database.json"));
+  data = JSON.parse(data);
 
-  // // check to see if studentnr is already in database.json
-  // let findStudNr = data.filter((value) => {
-  //   if (
-  //     value.studentNumber == req.body.studentNr &&
-  //     value.studentName == req.body.studentName
-  //   ) {
-  //     return value;
-  //   }
-  // });
+  // check to see if studentnr is already in database.json
+  let findStudNr = data.filter((value) => {
+    if (
+      value.studentNumber == req.body.studentNr &&
+      value.studentName == req.body.studentName
+    ) {
+      return value;
+    }
+  });
 
-  // let chosen = "";
+  let chosen = "";
 
-  // // Determine which survey was taken
-  // if (req.body.chosenCourse == "Progressive Web Apps") {
-  //   chosen = "pwa";
-  // }
+  // Determine which survey was taken
+  if (req.body.chosenCourse == "Progressive Web Apps") {
+    chosen = "pwa";
+  }
 
-  // if (req.body.chosenCourse == "CSS To The Rescue") {
-  //   chosen = "css";
-  // }
+  if (req.body.chosenCourse == "CSS To The Rescue") {
+    chosen = "css";
+  }
 
-  // if (req.body.chosenCourse == "Browser Technologies") {
-  //   chosen = "btech";
-  // }
+  if (req.body.chosenCourse == "Browser Technologies") {
+    chosen = "btech";
+  }
 
-  // if (req.body.chosenCourse == "Real-Time Web") {
-  //   chosen = "realtime";
-  // }
+  if (req.body.chosenCourse == "Real-Time Web") {
+    chosen = "realtime";
+  }
 
-  // if (req.body.chosenCourse == "Web Apps From Scratch") {
-  //   chosen = "wafs";
-  // }
+  if (req.body.chosenCourse == "Web Apps From Scratch") {
+    chosen = "wafs";
+  }
 
-  // if (req.body.chosenCourse == "Human Centered Design") {
-  //   chosen = "hcd";
-  // }
+  if (req.body.chosenCourse == "Human Centered Design") {
+    chosen = "hcd";
+  }
 
-  // // Delete completed survey from the student's survey list
-  // let coursesToDo = data.map((course) => {
-  //   if (
-  //     course.studentNumber == req.body.studentNr &&
-  //     course.studentName == req.body.studentName &&
-  //     course.hasOwnProperty("courses")
-  //   ) {
-  //     for (const property in course.courses) {
-  //       console.log(`Property: ${property} - Chosen: ${chosen}`);
-  //       if (property == chosen) {
-  //         console.log(`deleted: ${course.courses[property]}`);
-  //         delete course.courses[property];
-  //       }
-  //     }
-  //   }
-  //   return course;
-  // });
+  // Delete completed survey from the student's survey list
+  let coursesToDo = data.map((course) => {
+    if (
+      course.studentNumber == req.body.studentNr &&
+      course.studentName == req.body.studentName &&
+      course.hasOwnProperty("courses")
+    ) {
+      for (const property in course.courses) {
+        console.log(`Property: ${property} - Chosen: ${chosen}`);
+        if (property == chosen) {
+          console.log(`deleted: ${course.courses[property]}`);
+          delete course.courses[property];
+        }
+      }
+    }
+    return course;
+  });
 
+  // Update users suvey progress
+  let currentProgress = data.map((update) => {
+    if (
+      update.studentNumber == req.body.studentNr &&
+      update.studentName == req.body.studentName &&
+      update.hasOwnProperty("courses")
+    ) {
+      console.log("Update 1:", update.progress);
+      update.progress = update.progress + 1;
+      console.log("Update 2:", update.progress);
+      return update.progress;
+    }
+  });
+
+  let cleanProgress = currentProgress.filter((value) => {
+    if (value != "undefined") {
+      console.log("progress filtered:", value);
+      return value;
+    }
+  });
   // // Update users suvey progress
   // data.forEach((update) => {
   //   if (
@@ -500,53 +574,137 @@ app.post("/coursejs", (req, res) => {
   //   }
   // });
 
-  // // Organize user answers for storage
-  // let userAnswers = {
-  //   studentName: req.body.studentName,
-  //   studentNumber: req.body.studentNr,
-  //   chosenCourse: req.body.chosenCourse,
-  //   chosenTeacher: req.body.chosenTeacher,
-  //   week: req.body.week,
-  //   rateDifficulty: req.body.rateDifficulty,
-  //   rateExplanation: req.body.rateExplanation,
-  //   rateLearning: req.body.rateLearning,
-  // };
+  // Organize user answers for storage
+  let userAnswers = {
+    studentName: req.body.studentName,
+    studentNumber: req.body.studentNr,
+    chosenCourse: req.body.chosenCourse,
+    chosenTeacher: req.body.chosenTeacher,
+    week: req.body.week,
+    rateDifficulty: req.body.rateDifficulty,
+    rateExplanation: req.body.rateExplanation,
+    rateLearning: req.body.rateLearning,
+  };
 
-  // // Add new user data to the array
-  // data.push(userAnswers);
+  // Add new user data to the array
+  data.push(userAnswers);
 
-  // // Save modified data to database.json file
-  // let save = fs.writeFileSync(
-  //   path.resolve("database.json"),
-  //   JSON.stringify(data, null, 2)
-  // );
+  // Save modified data to database.json file
+  let save = fs.writeFileSync(
+    path.resolve("database.json"),
+    JSON.stringify(data, null, 2)
+  );
 
-  // // Get remaining course(s) from user
-  // let courseNext = data.map((nextCourse) => {
-  //   if (
-  //     nextCourse.studentNumber == req.body.studentNr &&
-  //     nextCourse.studentName == req.body.studentName &&
-  //     nextCourse.hasOwnProperty("courses")
-  //   ) {
-  //     for (const property in nextCourse.courses) {
-  //       if (nextCourse.courses[property] != req.body.chosenCourse) {
-  //         console.log(`RETURN: ${nextCourse.courses[property]}`);
-  //         return nextCourse.courses[property];
-  //       }
-  //     }
-  //   }
-  // });
+  // Get remaining course(s) from user
+  let courseNext = data.map((nextCourse) => {
+    if (
+      nextCourse.studentNumber == req.body.studentNr &&
+      nextCourse.studentName == req.body.studentName &&
+      nextCourse.hasOwnProperty("courses")
+    ) {
+      for (const property in nextCourse.courses) {
+        if (nextCourse.courses[property] != req.body.chosenCourse) {
+          console.log(`RETURN: ${nextCourse.courses[property]}`);
+          return nextCourse.courses[property];
+        }
+      }
+    }
+  });
 
-  // // console.log("Dit is it:", courseNext);
-  // let theCourse = courseNext.filter((value) => {
-  //   if (value != "undefined") {
-  //     return value;
-  //   }
-  // });
+  // console.log("Dit is it:", courseNext);
+  let theCourse = courseNext.filter((value) => {
+    if (value != "undefined") {
+      return value;
+    }
+  });
 
-  // console.log("Successfully the end!");
-  // res.json({ nextCourse: theCourse[0] });
-  res.json({ nextCourse: "Progressive Web Apps" });
+  console.log("Successfully the end!");
+  res.json({ nextCourse: theCourse[0], progress: cleanProgress[0] });
+});
+
+// Redirect from survey page to profile page with localStorage
+app.get("/profilejs/:studentName/:studentNr/:progress", (req, res) => {
+  console.log("profile GET PAGE VIA LS");
+  console.log("Requests: ", req.params);
+
+  // Assign JSON file contents to variable
+  let data = fs.readFileSync(path.resolve("database.json"));
+  data = JSON.parse(data);
+
+  // Does user input match a user's credentials in the DB?
+  let userExist = data.filter((value) => {
+    if (
+      (value.studentName == req.params.studentName &&
+        value.studentNumber == req.params.studentNr) ||
+      value.studentNumber == req.params.studentNumber
+    ) {
+      console.log("hoe dan:", value.studentName);
+      return value;
+    }
+  });
+
+  console.log("CHECK USER 1", userExist.length);
+
+  // How many courses has student completed?
+  let hasCourse = userExist.filter((has) => {
+    if (has.chosenCourse !== "undefined") {
+      return has.chosenCourse;
+    }
+  });
+
+  console.log("heeft course:", hasCourse.length);
+
+  // Get all remaining courses from user
+  let all_courses = data.map((done) => {
+    if (
+      done.studentName == req.params.studentName &&
+      done.studentNumber == req.params.studentNr &&
+      done.hasOwnProperty("courses")
+    ) {
+      // done.progress++;
+      return done.courses;
+    }
+  });
+
+  console.log("iodsfffoi", all_courses);
+
+  // Remove undefined values from remaining survey list
+  let clean = all_courses.filter((values) => {
+    if (values != "undefined") {
+      return values;
+    }
+  });
+
+  // ======================= latest survey
+
+  let latestUserCheck = data.filter((value) => {
+    if (
+      (value.studentName == req.params.studentName &&
+        value.studentNumber == req.params.studentNr) ||
+      value.studentNumber == req.params.studentNumber
+    ) {
+      console.log("hoe dan:", value.studentName);
+      return value;
+    }
+  });
+
+  let finishedSurvey = latestUserCheck.filter((finished) => {
+    if (finished.chosenCourse !== "undefined") {
+      console.log("WAT DE DEAL?", finished.chosenCourse);
+      return finished.chosenCourse;
+    }
+  });
+
+  // ======================= latest survey
+  console.log("GAAAT HIEERRRR DOOOR NAARRRR DELETE 2");
+  // Show profile page
+  res.render("profile", {
+    progress: req.params.progress,
+    hasSurveyAnswers: finishedSurvey,
+    resterendeVakken: clean[0],
+    studentName: req.params.studentName,
+    studentNumber: req.params.studentNr,
+  });
 });
 
 app.post("/assesment", (req, res) => {

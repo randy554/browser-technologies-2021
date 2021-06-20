@@ -1,6 +1,7 @@
 let chosenCourse = document.querySelector("#getChosenCourse").value;
 let loaderBlock = document.querySelector(".loader_block");
 // Form input
+let formAction = document.querySelector("#formAction");
 let teacherEl = document.querySelectorAll('input[name="teacher"]');
 let periodEl = document.querySelectorAll('input[name="week"]');
 
@@ -220,6 +221,13 @@ submitBtn.addEventListener("click", function (evt) {
     input.setAttribute("class", "nextSurveyBtn");
     input.setAttribute("value", courseName);
 
+    // Change chosen course value
+    // chosenCourse = courseName;
+
+    let newChosenCourse = document.querySelector("#getChosenCourse");
+    newChosenCourse.value = courseName;
+    console.log("Dit is nu de chosen:", newChosenCourse);
+
     // Create description text: Volgende enquete?
     let text = document.createElement("p");
     text.innerText = "Volgende enquete?";
@@ -230,28 +238,14 @@ submitBtn.addEventListener("click", function (evt) {
     let link = document.createElement("a");
     link.innerText = "Terug naar het overzicht";
 
-    // Gebruiker bestaat
-    // =========================================
-    // res.render("profile", {
-    //   progress: ++req.body.progressValue,
-    //   hasSurveyAnswers: finishedSurvey,
-    //   resterendeVakken: clean[0],
-    //   studentName: req.body.studentName,
-    //   studentNumber: req.body.studentNumber,
-    // });
-
-    // Gebruiker bestaat nog niet
-    // =========================================
-    // res.render("profile", {
-    //   progress: status[0].progress,
-    //   hasSurveyAnswers: hasCourse,
-    //   studentName: req.body.studentName,
-    //   studentNumber: req.body.studentNr,
-    //   resterendeVakken: clean[0],
-    // });
+    // Change the form action attribute
+    formAction.setAttribute("action", "/nextcoursejs");
 
     // Get request
-    link.setAttribute("href", "/course");
+    link.setAttribute(
+      "href",
+      `/profilejs/${studentName}/${studentNumber}/${++progress}`
+    );
 
     // Position created elements on page
     rootElement.insertAdjacentElement("afterend", link);
@@ -288,11 +282,13 @@ submitBtn.addEventListener("click", function (evt) {
       let courseTodo = nextCourse.nextCourse;
       console.log("Next course todo: ", courseTodo);
 
-      createNextSurveyElements(loaderBlock, courseTodo, submitBtn);
+      if (courseTodo !== "undefined") {
+        createNextSurveyElements(loaderBlock, courseTodo, submitBtn);
+      }
     });
 
   // Delete survey from localStorage
-  // deleteSurveyDataFromLs(chosenCourse);
+  deleteSurveyDataFromLs(chosenCourse);
   console.log("Data sent to server:", data);
 });
 
