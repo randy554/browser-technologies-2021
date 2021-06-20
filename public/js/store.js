@@ -282,7 +282,7 @@ submitBtn.addEventListener("click", function (evt) {
       let courseTodo = nextCourse.nextCourse;
       console.log("Next course todo: ", courseTodo);
 
-      if (courseTodo !== "undefined") {
+      if (courseTodo) {
         createNextSurveyElements(loaderBlock, courseTodo, submitBtn);
       }
     });
