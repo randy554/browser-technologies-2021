@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/progress.css" />
     <link rel="stylesheet" href="/css/loader.css" />
+    <link rel="stylesheet" href="/css/messages.css" />
     <title>Minor Web Enquete</title>
   </head>
   <body>
@@ -135,6 +136,7 @@
           max="10"
           placeholder="Geef een cijfer tussen 1-10"
         />
+        <span id="difficultyError">Error tekst hier</span>
         <br />
 
         <label for="explanation">
@@ -148,6 +150,7 @@
           max="10"
           placeholder="Geef een cijfer tussen 1-10"
         />
+        <span id="explanationError">Error tekst hier</span>
         <br />
 
         <label for="learned">Eigen inzicht (hoe goed snap je het):</label>
@@ -159,6 +162,7 @@
           max="10"
           placeholder="Geef een cijfer tussen 1-10"
         />
+        <span id="learnedError">Error tekst hier</span>
         <br /><br />
 
         <input type="hidden" name="page" value="2" />
@@ -182,6 +186,7 @@
           />
         </div>
       </form>
+      <div id="error_box"></div>
     </main>
     <%- include('partials/coursefooter'); %>
   </body>

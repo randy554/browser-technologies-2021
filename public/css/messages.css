@@ -14,6 +14,22 @@
   display: none;
 }
 
+#difficultyError {
+  color: red;
+  display: none;
+}
+#explanationError {
+  color: red;
+  display: none;
+}
+#learnedError {
+  color: red;
+  display: none;
+}
+#errorPar {
+  color: red;
+}
+
 input[type="text"]:focus {
   border-bottom-color: green;
   /* border-bottom-color: #1b60db; */
