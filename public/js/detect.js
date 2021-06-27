@@ -156,6 +156,32 @@ function getSurveyList(
   return surveyList;
 }
 
+// Get localStorage data & filter for pending survey names
+let lsData = JSON.parse(localStorage.getItem("uncomplete"));
+let surveyNamesLs = surveyNamesFromLs(lsData[0].enquetes);
+
+// Get all toDo survey links from profile page
+let surveysTodoLinks = document.querySelectorAll(".noStart");
+
+// Remove all todo survey links on page, by pending survey names from LS data
+surveysTodoLinks.forEach((value) => {
+  // If todo link name is found in survey list from Ls,
+  let temp = surveyNamesLs.indexOf(value.innerText);
+
+  // then remove link element from page
+  if (temp >= 0) {
+    console.log("the same", value.innerText);
+    value.remove();
+  }
+});
+
+// Return survey names stored in localStorage
+function surveyNamesFromLs(ls) {
+  return ls.map((item) => {
+    return item.courseName;
+  });
+}
+
 // Display list of uncompleted surveys on profile page
 function addSurveyListToPage(surveyL) {
   let ulEl = document.querySelector("#toDoSurveys");
@@ -167,3 +193,6 @@ function addSurveyListToPage(surveyL) {
     );
   });
 }
+
+// Remove survey links already shown by localStorage section
+function removeDuplicateSurveyLink(surveyL) {}

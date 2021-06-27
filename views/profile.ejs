@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/progress.css" />
     <link rel="stylesheet" href="/css/surveys.css" />
+    <link
+      rel="shortcut icon"
+      href="/images/icons/favicon.ico"
+      type="image/png"
+    />
     <title>Minor Web Enquete</title>
   </head>
   <body>
@@ -86,7 +91,7 @@
       <ul id="toDoSurveys">
         <% for(key in resterendeVakken) { %>
 
-        <li>
+        <li class="noStart">
           <a
             href="/course/<%- key %>/<%- studentName %>/<%- studentNumber %>/<%- progress %> "
             ><%- resterendeVakken[key] %></a
