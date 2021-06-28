@@ -64,45 +64,46 @@ function buildProfilePage() {
 
 // Check local storage for uncompleted survey data
 function getUncompletedSurvey() {
-  let uncomplete = [
-    {
-      enquetes: [
-        {
-          courseName: "Progressive Web Apps",
-          shortName: "pwa",
-          answers: {
-            week: "Week 5",
-            teacher: "Declan Rek",
-            rateDifficulty: "2",
-            rateExplanation: "8",
-            rateLearning: "6",
-          },
-        },
-        {
-          courseName: "CSS To The Rescue",
-          shortName: "css",
-          answers: {
-            teacher: "Vasilis van Gemert",
-            rateDifficulty: "8",
-            rateExplanation: "9",
-            rateLearning: "8",
-          },
-        },
-        {
-          courseName: "Browser Technologies",
-          shortName: "btech",
-          answers: {
-            week: "Week 20",
-          },
-        },
-      ],
-    },
-  ];
   // let uncomplete = [
   //   {
-  //     enquetes: [],
+  //     enquetes: [
+  //       {
+  //         courseName: "Progressive Web Apps",
+  //         shortName: "pwa",
+  //         answers: {
+  //           week: "Week 5",
+  //           teacher: "Declan Rek",
+  //           rateDifficulty: "2",
+  //           rateExplanation: "8",
+  //           rateLearning: "6",
+  //         },
+  //       },
+  //       {
+  //         courseName: "CSS To The Rescue",
+  //         shortName: "css",
+  //         answers: {
+  //           teacher: "Vasilis van Gemert",
+  //           rateDifficulty: "8",
+  //           rateExplanation: "9",
+  //           rateLearning: "8",
+  //         },
+  //       },
+  //       {
+  //         courseName: "Browser Technologies",
+  //         shortName: "btech",
+  //         answers: {
+  //           week: "Week 20",
+  //         },
+  //       },
+  //     ],
   //   },
   // ];
+
+  let uncomplete = [
+    {
+      enquetes: [],
+    },
+  ];
   // localStorage.setItem("uncomplete", JSON.stringify(uncomplete));
 
   // Is there is anything in localStorage

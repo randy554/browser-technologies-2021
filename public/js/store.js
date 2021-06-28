@@ -369,41 +369,41 @@ submitBtn.addEventListener("click", function (evt) {
       rootElement.insertAdjacentElement("afterend", text);
     }
 
-    // // Fetch options
-    // const options = {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(data),
-    // };
+    // Fetch options
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    };
 
-    // // Send form data to backend
-    // fetch("/coursejs", options)
-    //   .then((res) => {
-    //     // console.log(res.json());
+    // Send form data to backend
+    fetch("/coursejs", options)
+      .then((res) => {
+        // console.log(res.json());
 
-    //     // Display loading animation
-    //     toggleLoader("off");
+        // Display loading animation
+        toggleLoader("off");
 
-    //     // Display checkmark icon
-    //     toggleCheckMark("on");
-    //     return res.json();
-    //   })
-    //   .then((nextCourse) => {
-    //     console.log("This is the final then:");
-    //     console.log(nextCourse);
-    //     let courseTodo = nextCourse.nextCourse;
-    //     console.log("Next course todo: ", courseTodo);
+        // Display checkmark icon
+        toggleCheckMark("on");
+        return res.json();
+      })
+      .then((nextCourse) => {
+        console.log("This is the final then:");
+        console.log(nextCourse);
+        let courseTodo = nextCourse.nextCourse;
+        console.log("Next course todo: ", courseTodo);
 
-    //     if (courseTodo) {
-    //       createNextSurveyElements(loaderBlock, courseTodo, submitBtn);
-    //     }
-    //   });
+        if (courseTodo) {
+          createNextSurveyElements(loaderBlock, courseTodo, submitBtn);
+        }
+      });
 
-    // // Delete survey from localStorage
-    // deleteSurveyDataFromLs(chosenCourse);
-    // console.log("Data sent to server:", data);
+    // Delete survey from localStorage
+    deleteSurveyDataFromLs(chosenCourse);
+    console.log("Data sent to server:", data);
   }
 });
 
