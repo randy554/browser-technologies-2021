@@ -11,6 +11,7 @@ let periodEl = document.querySelectorAll('input[name="week"]');
 let progress = document.querySelector('input[name="progressValue"]').value;
 let studentNumber = document.querySelector('input[name="studentNumber"]').value;
 let studentName = document.querySelector('input[name="studentName"]').value;
+let profileBlock = document.querySelector("#profileblock");
 
 // Rating input
 let difficultyEl = document.querySelector('input[name="rateDifficulty"]');
@@ -172,6 +173,29 @@ function getSurveyData() {
     return false;
   }
 }
+// Create a backlink to profile page
+// & add it to the page
+function createLinkToProfilePage(rootElement) {
+  // Create link to profile page here: Terug naar overzicht
+  let profileLink = document.createElement("a");
+  profileLink.innerText = "Terug naar het overzicht";
+
+  // Get request
+  profileLink.setAttribute(
+    "href",
+    `/profilejs/${studentName}/${studentNumber}/${progress}`
+  );
+
+  let br = document.createElement("br");
+  let anotherBr = document.createElement("br");
+
+  // Position created elements on page
+  rootElement.insertAdjacentElement("afterbegin", profileLink);
+  rootElement.insertAdjacentElement("afterbegin", br);
+  rootElement.insertAdjacentElement("afterbegin", anotherBr);
+}
+
+createLinkToProfilePage(profileBlock);
 
 // Erase all error messages from page
 formEl.forEach((inputEl) => {
@@ -360,6 +384,9 @@ submitBtn.addEventListener("click", function (evt) {
         "href",
         `/profilejs/${studentName}/${studentNumber}/${++progress}`
       );
+
+      // Remove duplicate backlink to profilepage
+      profileBlock.remove();
 
       // Position created elements on page
       rootElement.insertAdjacentElement("afterend", link);
