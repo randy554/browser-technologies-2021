@@ -168,7 +168,7 @@ app.post("/nextcoursejs", (req, res) => {
 });
 
 app.post("/course", (req, res) => {
-  console.log("course route:POST");
+  console.log("course route:POST PROFILE PAGE WITH/WITHOUT JS");
 
   // Assign JSON file contents to variable
   let data = fs.readFileSync(path.resolve("database.json"));
@@ -211,7 +211,7 @@ app.post("/course", (req, res) => {
 
       let messages = [];
 
-      if (!req.body.hasOwnProperty("chosenTeacher")) {
+      if (!req.body.hasOwnProperty("teacher")) {
         console.log("Geen docent(en) gekozen!");
         messages.push("Geen docent(en) gekozen!");
       }
@@ -312,7 +312,7 @@ app.post("/course", (req, res) => {
           studentName: req.body.studentName,
           studentNumber: req.body.studentNumber,
           chosenCourse: req.body.chosenCourse,
-          chosenTeacher: req.body.chosenTeacher,
+          chosenTeacher: req.body.teacher,
           week: req.body.week,
           rateDifficulty: req.body.rateDifficulty,
           rateExplanation: req.body.rateExplanation,
@@ -620,6 +620,11 @@ app.post("/coursejs", (req, res) => {
 
   console.log("Successfully the end!");
   res.json({ nextCourse: theCourse[0], progress: cleanProgress[0] });
+});
+
+app.get("/books", (res, req) => {
+  let hello = "something";
+  res.send("hey there!");
 });
 
 // Redirect from survey page to profile page with localStorage

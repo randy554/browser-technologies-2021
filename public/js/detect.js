@@ -50,7 +50,7 @@ if (storageAvailable("localStorage")) {
 function buildProfilePage() {
   // List of elements to hide
   let x = document.querySelectorAll("h2, ul, p");
-  let surveyList = document.querySelector("#allSurveys").remove();
+  // let surveyList = document.querySelector("#allSurveys").remove();
   let pageTitle = (document.querySelector("#pageTitle").innerText =
     "Overzicht enquetes");
   let toDoTitle = (document.querySelector("#toDoTitle").innerText = "Vakken");

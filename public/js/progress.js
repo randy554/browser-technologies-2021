@@ -27,8 +27,9 @@ window.addEventListener("load", () => {
   let progDB = document.querySelector(
     "#hiddenProgress > input[name='progressValue']"
   ).value;
-  let progDBfrmPost = document.querySelector("form input[name='progressValue']")
-    .value;
+  let progDBfrmPost = document.querySelector(
+    "form input[name='progressValue']"
+  ).value;
 
   console.log(`Progressbar: ${progBar} - Progress from DB: ${progDB}`);
 
