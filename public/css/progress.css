@@ -15,4 +15,8 @@
   display: none;
 }
 
+#progressSectionFunc {
+  padding: 0 1em;
+}
+
 /* ------ progress bar ------ */

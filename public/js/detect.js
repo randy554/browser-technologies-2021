@@ -53,8 +53,8 @@ function buildProfilePage() {
   // let surveyList = document.querySelector("#allSurveys").remove();
   let pageTitle = (document.querySelector("#pageTitle").innerText =
     "Overzicht enquetes");
-  let toDoTitle = (document.querySelector("#toDoTitle").innerText = "Vakken");
-  document.querySelector("#toDoTitle").style.fontWeight = "bold";
+  // let toDoTitle = (document.querySelector("#toDoTitle").innerText = "Vakken");
+  // document.querySelector("#toDoTitle").style.fontWeight = "bold";
   // let afgerondTitle = document.querySelector("#afgerondTitle").remove();
   let afgerondTitle = document.querySelector("#afgerondTitle");
   if (afgerondTitle) {

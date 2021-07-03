@@ -1,0 +1,29 @@
+:root {
+  --header_blue: #3b5cd0;
+  --white: #ffffff;
+}
+
+/* BODY */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin-top: 0;
+}
+
+/* BODY */
+
+main {
+  margin-top: 2em;
+  padding: 0 1em;
+}
+
+h2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+}

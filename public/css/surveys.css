@@ -22,3 +22,18 @@ li {
 #finishedSurveys {
   margin-top: 0;
 }
+
+#toDoTitle {
+  display: none;
+}
+
+#pageTitle {
+  font-family: "Roboto", sans-serif;
+  font-weight: lighter;
+  margin-bottom: 1em;
+}
+
+#afgerondTitle {
+  font-family: "Roboto", sans-serif;
+  font-weight: semi-bold;
+}
