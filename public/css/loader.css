@@ -1,20 +1,31 @@
-.loader {
-  display: none;
-  border: 0.2em solid #f3f3f3;
-  border-radius: 50%;
-  border-top: 0.2em solid #0f39cf;
-  width: 1.5em;
-  height: 1.5em;
-  -webkit-animation: spin 2s linear infinite; /* Safari */
-  animation: spin 2s linear infinite;
-}
-
 @keyframes spin {
   0% {
     transform: rotate(0deg);
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@supports (animation: spin 2s linear infinite) or
+  (-webkit-animation: spin 2s linear infinite) {
+  .loader {
+    content: normal;
+    display: none;
+    border: 0.2em solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 0.2em solid #0f39cf;
+    width: 1.5em;
+    height: 1.5em;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+  }
+}
+
+@supports (not (animation: spin 2s linear infinite)) or
+  (not (-webkit-animation: spin 2s linear infinite)) {
+  .loader::before {
+    content: "loading..";
   }
 }
 

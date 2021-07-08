@@ -16,47 +16,41 @@
     "studentName": "Ronaldo",
     "studentNumber": "999999999",
     "courses": {
-      "css": "CSS To The Rescue",
-      "btech": "Browser Technologies"
+      "wafs": "Web Apps From Scratch",
+      "pwa": "Progressive Web Apps",
+      "btech": "Browser Technologies",
+      "realtime": "Real-Time Web"
     },
-    "progress": 4
+    "progress": 3
   },
   {
     "studentName": "Ronaldo",
     "studentNumber": "999999999",
     "chosenCourse": "Human Centered Design",
+    "chosenTeacher": "Koop Reynders",
     "week": "Week 10",
-    "rateDifficulty": "7",
-    "rateExplanation": "4",
-    "rateLearning": "7"
+    "rateDifficulty": "1",
+    "rateExplanation": "1",
+    "rateLearning": "1"
   },
   {
     "studentName": "Ronaldo",
     "studentNumber": "999999999",
-    "chosenCourse": "Progressive Web Apps",
+    "chosenCourse": "CSS To The Rescue",
+    "chosenTeacher": "Sanne 't Hooft",
     "week": "Week 10",
-    "rateDifficulty": "9",
-    "rateExplanation": "5",
-    "rateLearning": "7"
+    "rateDifficulty": "2",
+    "rateExplanation": "3",
+    "rateLearning": "2"
   },
   {
     "studentName": "Ronaldo",
     "studentNumber": "999999999",
-    "chosenCourse": "Real-Time Web",
-    "chosenTeacher": "Lucas van Driel",
-    "week": "Week 15",
-    "rateDifficulty": "7",
-    "rateExplanation": "7",
-    "rateLearning": "7"
-  },
-  {
-    "studentName": "Ronaldo",
-    "studentNumber": "999999999",
-    "chosenCourse": "Web Apps From Scratch",
-    "chosenTeacher": "Declan Rek",
-    "week": "Week 5",
-    "rateDifficulty": "7",
-    "rateExplanation": "7",
-    "rateLearning": "7"
+    "chosenCourse": "CSS To The Rescue",
+    "chosenTeacher": "Sanne 't Hooft",
+    "week": "Week 10",
+    "rateDifficulty": "3",
+    "rateExplanation": "3",
+    "rateLearning": "2"
   }
 ]

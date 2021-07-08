@@ -3,13 +3,20 @@
 header {
   margin: 0 0 2em 0;
   padding: 1rem;
-  background-image: linear-gradient(
-    90deg,
-    #964acd 0%,
-    #6759ff 50%,
-    #1b60db 100%
-  );
-  /* background-color: #3b5cd0; */
+  background-color: #3b5cd0;
+}
+@supports (
+  background-image:
+    linear-gradient(90deg, #964acd 0%, #6759ff 50%, #1b60db 100%)
+) {
+  header {
+    background-image: linear-gradient(
+      90deg,
+      #964acd 0%,
+      #6759ff 50%,
+      #1b60db 100%
+    );
+  }
 }
 
 header a {

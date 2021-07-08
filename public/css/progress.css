@@ -2,6 +2,7 @@
 
 #myProgress {
   width: 30%;
+  margin-top: 1em;
   background-color: grey;
 }
 
@@ -13,6 +14,7 @@
 
 #progressSection {
   display: none;
+  padding: 0 1em;
 }
 
 #progressSectionFunc {
