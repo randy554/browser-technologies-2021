@@ -18,10 +18,9 @@
     "courses": {
       "wafs": "Web Apps From Scratch",
       "pwa": "Progressive Web Apps",
-      "btech": "Browser Technologies",
-      "realtime": "Real-Time Web"
+      "btech": "Browser Technologies"
     },
-    "progress": 3
+    "progress": 4
   },
   {
     "studentName": "Ronaldo",
@@ -52,5 +51,15 @@
     "rateDifficulty": "3",
     "rateExplanation": "3",
     "rateLearning": "2"
+  },
+  {
+    "studentName": "Ronaldo",
+    "studentNumber": "999999999",
+    "chosenCourse": "Real-Time Web",
+    "chosenTeacher": "Justus Sturkenboom",
+    "week": "Week 10",
+    "rateDifficulty": "4",
+    "rateExplanation": "4",
+    "rateLearning": "3"
   }
 ]

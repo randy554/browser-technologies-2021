@@ -1,5 +1,3 @@
-// console.log("validate.js");
-
 let nameField = document.querySelector("#nameStudent");
 let stNrField = document.querySelector("#studentNumber");
 let subMBtn = document.querySelector("[type='submit']");
@@ -42,10 +40,7 @@ form.addEventListener("submit", (evt) => {
   }
 
   if (stNrField.value !== "" || stNrField.value != null) {
-    // console.log("TYPEOF: ", typeof stNrField.value);
-
     let studNr = Number(stNrField.value);
-    // console.log("TYPEOF 2: ", typeof studNr, " value: ", studNr);
 
     if (isNaN(studNr)) {
       messages.push("<li>Studentnummer bestaat alleen uit cijfers!</li>");
