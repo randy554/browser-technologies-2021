@@ -222,215 +222,221 @@ let messages = [];
 
 // When user submits form
 submitBtn.addEventListener("click", function (evt) {
-  evt.preventDefault();
-  messages = [];
-  let inputErr = [];
+  if (window.fetch) {
+    console.log("Fetch feature detected!");
 
-  let teacherCheck = document.querySelector('input[name="teacher"]:checked');
+    evt.preventDefault();
+    messages = [];
+    let inputErr = [];
 
-  if (!teacherCheck) {
-    messages.push("Vul alle velden in!");
-  }
-  let weekCheck = document.querySelector('input[name="week"]:checked');
+    let teacherCheck = document.querySelector('input[name="teacher"]:checked');
 
-  if (!weekCheck) {
-    messages.push("Vul alle velden in!");
-  }
+    if (!teacherCheck) {
+      messages.push("Vul alle velden in!");
+    }
+    let weekCheck = document.querySelector('input[name="week"]:checked');
 
-  let difficultyError = document.querySelector("#difficultyError");
-
-  // console.log("difficulty:", difficultyEl.value);
-  // Check for difficulty question input
-  if (difficultyEl.value == "" || difficultyEl == null) {
-    messages.push("Make sure to answer all questions!");
-  } else if (difficultyEl.value > 10) {
-    inputErr.push("Input must be smaller than 10!");
-    difficultyError.innerText = "Input must be smaller than 10!";
-    difficultyError.style.display = "block";
-  } else if (difficultyEl.value < 1) {
-    inputErr.push("Input must be bigger than 1!");
-    difficultyError.innerText = "Input must be bigger than 1!";
-    difficultyError.style.display = "block";
-  } else if (isNaN(difficultyEl.value)) {
-    console.log("Only numbers allowd in field!");
-  }
-
-  let explanationError = document.querySelector("#explanationError");
-
-  // console.log("explanation:", explanationEl.value);
-  // Check for explanation question input
-  if (explanationEl.value == "" || explanationEl == null) {
-    messages.push("Make sure to answer all questions!");
-  } else if (explanationEl.value > 10) {
-    inputErr.push("Input must be smaller than 10!");
-    explanationError.innerText = "Input must be smaller than 10!";
-    explanationError.style.display = "block";
-  } else if (explanationEl.value < 1) {
-    inputErr.push("Input must be bigger than 1!");
-    explanationError.innerText = "Input must be bigger than 1!";
-    explanationError.style.display = "block";
-  } else if (isNaN(explanationEl.value)) {
-    console.log("Only numbers allowd in field!");
-  }
-
-  let learnedError = document.querySelector("#learnedError");
-
-  // console.log("learning:", learningEl.value);
-  // Check for learning question input
-  if (learningEl.value == "" || learningEl == null) {
-    messages.push("Make sure to answer all questions!");
-  } else if (learningEl.value > 10) {
-    inputErr.push("Input must be smaller than 10!");
-    // Show error on page
-    learnedError.innerText = "Input must be smaller than 10!";
-    learnedError.style.display = "block";
-  } else if (learningEl.value < 1) {
-    inputErr.push("Input must be bigger than 1!");
-    // Show error on page
-    learnedError.innerText = "Input must be bigger than 1!";
-    learnedError.style.display = "block";
-  } else if (isNaN(learningEl.value)) {
-    console.log("Only numbers allowd in field!");
-  }
-
-  if (messages.length > 0) {
-    console.log("Vul alle velden in!");
-    console.log(messages);
-
-    let errorBox = document.getElementById("error_box");
-    let errorPar = document.createElement("p");
-    errorPar.innerText = messages[0];
-    errorPar.setAttribute("id", "errorPar");
-    errorBox.insertAdjacentElement("afterbegin", errorPar);
-  } else if (inputErr.length > 0) {
-    console.log("Invalid input");
-    console.log(inputErr);
-  } else {
-    console.log("Prima! Alle velden zijn gevuld.");
-    // Display loading animation
-    toggleLoader("on");
-
-    // Get filled input values
-    const teacherVal = document.querySelector(
-      'input[name="teacher"]:checked'
-    ).value;
-
-    const periodVal = document.querySelector(
-      'input[name="week"]:checked'
-    ).value;
-
-    const difficultyVal = document.querySelector(
-      'input[name="rateDifficulty"]'
-    ).value;
-    const explanationVal = document.querySelector(
-      'input[name="rateExplanation"]'
-    ).value;
-    const learningVal = document.querySelector(
-      'input[name="rateLearning"]'
-    ).value;
-
-    // Retrieved form data
-    const data = {
-      studentName: studentName,
-      studentNr: studentNumber,
-      progress: progress,
-      chosenCourse: chosenCourse,
-      chosenTeacher: teacherVal,
-      week: periodVal,
-      rateDifficulty: difficultyVal,
-      rateExplanation: explanationVal,
-      rateLearning: learningVal,
-    };
-
-    // Create next course to be taken button
-    function createNextSurveyElements(
-      rootElement,
-      courseName,
-      currentSubmitBn
-    ) {
-      // Remove checkMark
-      toggleCheckMark("off");
-      // Remove current submit button from block
-      currentSubmitBn.style.display = "none";
-
-      // Create button & set attributes
-      let input = document.createElement("input");
-      input.setAttribute("type", "submit");
-      input.setAttribute("class", "nextSurveyBtn");
-      input.setAttribute("value", courseName);
-
-      // Change chosen course value
-      // chosenCourse = courseName;
-
-      let newChosenCourse = document.querySelector("#getChosenCourse");
-      newChosenCourse.value = courseName;
-      console.log("Dit is nu de chosen:", newChosenCourse);
-
-      // Create description text: Volgende enquete?
-      let text = document.createElement("p");
-      text.innerText = "Volgende enquete?";
-      let br = document.createElement("br");
-      let anotherBr = document.createElement("br");
-
-      // Create link to profile page here: Terug naar overzicht
-      let link = document.createElement("a");
-      link.innerText = "Terug naar het overzicht";
-
-      // Change the form action attribute
-      formAction.setAttribute("action", "/nextcoursejs");
-
-      // Get request
-      link.setAttribute(
-        "href",
-        `/profilejs/${studentName}/${studentNumber}/${++progress}`
-      );
-
-      // Remove duplicate backlink to profilepage
-      profileBlock.remove();
-
-      // Position created elements on page
-      rootElement.insertAdjacentElement("afterend", link);
-      rootElement.insertAdjacentElement("afterend", br);
-      rootElement.insertAdjacentElement("afterend", anotherBr);
-      rootElement.insertAdjacentElement("afterend", input);
-      rootElement.insertAdjacentElement("afterend", text);
+    if (!weekCheck) {
+      messages.push("Vul alle velden in!");
     }
 
-    // Fetch options
-    const options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    };
+    let difficultyError = document.querySelector("#difficultyError");
 
-    // Send form data to backend
-    fetch("/coursejs", options)
-      .then((res) => {
-        // console.log(res.json());
+    // console.log("difficulty:", difficultyEl.value);
+    // Check for difficulty question input
+    if (difficultyEl.value == "" || difficultyEl == null) {
+      messages.push("Make sure to answer all questions!");
+    } else if (difficultyEl.value > 10) {
+      inputErr.push("Input must be smaller than 10!");
+      difficultyError.innerText = "Input must be smaller than 10!";
+      difficultyError.style.display = "block";
+    } else if (difficultyEl.value < 1) {
+      inputErr.push("Input must be bigger than 1!");
+      difficultyError.innerText = "Input must be bigger than 1!";
+      difficultyError.style.display = "block";
+    } else if (isNaN(difficultyEl.value)) {
+      console.log("Only numbers allowd in field!");
+    }
 
-        // Display loading animation
-        toggleLoader("off");
+    let explanationError = document.querySelector("#explanationError");
 
-        // Display checkmark icon
-        toggleCheckMark("on");
-        return res.json();
-      })
-      .then((nextCourse) => {
-        console.log("This is the final then:");
-        console.log(nextCourse);
-        let courseTodo = nextCourse.nextCourse;
-        console.log("Next course todo: ", courseTodo);
+    // console.log("explanation:", explanationEl.value);
+    // Check for explanation question input
+    if (explanationEl.value == "" || explanationEl == null) {
+      messages.push("Make sure to answer all questions!");
+    } else if (explanationEl.value > 10) {
+      inputErr.push("Input must be smaller than 10!");
+      explanationError.innerText = "Input must be smaller than 10!";
+      explanationError.style.display = "block";
+    } else if (explanationEl.value < 1) {
+      inputErr.push("Input must be bigger than 1!");
+      explanationError.innerText = "Input must be bigger than 1!";
+      explanationError.style.display = "block";
+    } else if (isNaN(explanationEl.value)) {
+      console.log("Only numbers allowd in field!");
+    }
 
-        if (courseTodo) {
-          createNextSurveyElements(loaderBlock, courseTodo, submitBtn);
-        }
-      });
+    let learnedError = document.querySelector("#learnedError");
 
-    // Delete survey from localStorage
-    deleteSurveyDataFromLs(chosenCourse);
-    console.log("Data sent to server:", data);
+    // console.log("learning:", learningEl.value);
+    // Check for learning question input
+    if (learningEl.value == "" || learningEl == null) {
+      messages.push("Make sure to answer all questions!");
+    } else if (learningEl.value > 10) {
+      inputErr.push("Input must be smaller than 10!");
+      // Show error on page
+      learnedError.innerText = "Input must be smaller than 10!";
+      learnedError.style.display = "block";
+    } else if (learningEl.value < 1) {
+      inputErr.push("Input must be bigger than 1!");
+      // Show error on page
+      learnedError.innerText = "Input must be bigger than 1!";
+      learnedError.style.display = "block";
+    } else if (isNaN(learningEl.value)) {
+      console.log("Only numbers allowd in field!");
+    }
+
+    if (messages.length > 0) {
+      console.log("Vul alle velden in!");
+      console.log(messages);
+
+      let errorBox = document.getElementById("error_box");
+      let errorPar = document.createElement("p");
+      errorPar.innerText = messages[0];
+      errorPar.setAttribute("id", "errorPar");
+      errorBox.insertAdjacentElement("afterbegin", errorPar);
+    } else if (inputErr.length > 0) {
+      console.log("Invalid input");
+      console.log(inputErr);
+    } else {
+      console.log("Prima! Alle velden zijn gevuld.");
+      // Display loading animation
+      toggleLoader("on");
+
+      // Get filled input values
+      const teacherVal = document.querySelector(
+        'input[name="teacher"]:checked'
+      ).value;
+
+      const periodVal = document.querySelector(
+        'input[name="week"]:checked'
+      ).value;
+
+      const difficultyVal = document.querySelector(
+        'input[name="rateDifficulty"]'
+      ).value;
+      const explanationVal = document.querySelector(
+        'input[name="rateExplanation"]'
+      ).value;
+      const learningVal = document.querySelector(
+        'input[name="rateLearning"]'
+      ).value;
+
+      // Retrieved form data
+      const data = {
+        studentName: studentName,
+        studentNr: studentNumber,
+        progress: progress,
+        chosenCourse: chosenCourse,
+        chosenTeacher: teacherVal,
+        week: periodVal,
+        rateDifficulty: difficultyVal,
+        rateExplanation: explanationVal,
+        rateLearning: learningVal,
+      };
+
+      // Create next course to be taken button
+      function createNextSurveyElements(
+        rootElement,
+        courseName,
+        currentSubmitBn
+      ) {
+        // Remove checkMark
+        toggleCheckMark("off");
+        // Remove current submit button from block
+        currentSubmitBn.style.display = "none";
+
+        // Create button & set attributes
+        let input = document.createElement("input");
+        input.setAttribute("type", "submit");
+        input.setAttribute("class", "nextSurveyBtn");
+        input.setAttribute("value", courseName);
+
+        // Change chosen course value
+        // chosenCourse = courseName;
+
+        let newChosenCourse = document.querySelector("#getChosenCourse");
+        newChosenCourse.value = courseName;
+        console.log("Dit is nu de chosen:", newChosenCourse);
+
+        // Create description text: Volgende enquete?
+        let text = document.createElement("p");
+        text.innerText = "Volgende enquete?";
+        let br = document.createElement("br");
+        let anotherBr = document.createElement("br");
+
+        // Create link to profile page here: Terug naar overzicht
+        let link = document.createElement("a");
+        link.innerText = "Terug naar het overzicht";
+
+        // Change the form action attribute
+        formAction.setAttribute("action", "/nextcoursejs");
+
+        // Get request
+        link.setAttribute(
+          "href",
+          `/profilejs/${studentName}/${studentNumber}/${++progress}`
+        );
+
+        // Remove duplicate backlink to profilepage
+        profileBlock.remove();
+
+        // Position created elements on page
+        rootElement.insertAdjacentElement("afterend", link);
+        rootElement.insertAdjacentElement("afterend", br);
+        rootElement.insertAdjacentElement("afterend", anotherBr);
+        rootElement.insertAdjacentElement("afterend", input);
+        rootElement.insertAdjacentElement("afterend", text);
+      }
+
+      // Fetch options
+      const options = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      };
+
+      // Send form data to backend
+      fetch("/coursejs", options)
+        .then((res) => {
+          // console.log(res.json());
+
+          // Display loading animation
+          toggleLoader("off");
+
+          // Display checkmark icon
+          toggleCheckMark("on");
+          return res.json();
+        })
+        .then((nextCourse) => {
+          console.log("This is the final then:");
+          console.log(nextCourse);
+          let courseTodo = nextCourse.nextCourse;
+          console.log("Next course todo: ", courseTodo);
+
+          if (courseTodo) {
+            createNextSurveyElements(loaderBlock, courseTodo, submitBtn);
+          }
+        });
+
+      // Delete survey from localStorage
+      deleteSurveyDataFromLs(chosenCourse);
+      console.log("Data sent to server:", data);
+    }
+  } else {
+    console.log("No fetch feature detected!");
   }
 });
 

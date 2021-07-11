@@ -16,50 +16,40 @@
     "studentName": "Ronaldo",
     "studentNumber": "999999999",
     "courses": {
-      "wafs": "Web Apps From Scratch",
-      "pwa": "Progressive Web Apps",
-      "btech": "Browser Technologies"
+      "css": "CSS To The Rescue",
+      "realtime": "Real-Time Web",
+      "hcd": "Human Centered Design"
     },
-    "progress": 4
+    "progress": 3
   },
   {
     "studentName": "Ronaldo",
     "studentNumber": "999999999",
-    "chosenCourse": "Human Centered Design",
-    "chosenTeacher": "Koop Reynders",
-    "week": "Week 10",
-    "rateDifficulty": "1",
-    "rateExplanation": "1",
-    "rateLearning": "1"
+    "chosenCourse": "Progressive Web Apps",
+    "chosenTeacher": "Joost Faber",
+    "week": "Week 5",
+    "rateDifficulty": "6",
+    "rateExplanation": "6",
+    "rateLearning": "6"
   },
   {
     "studentName": "Ronaldo",
     "studentNumber": "999999999",
-    "chosenCourse": "CSS To The Rescue",
-    "chosenTeacher": "Sanne 't Hooft",
-    "week": "Week 10",
-    "rateDifficulty": "2",
-    "rateExplanation": "3",
-    "rateLearning": "2"
+    "chosenCourse": "Browser Technologies",
+    "chosenTeacher": "Peter Paul Koch",
+    "week": "Week 5",
+    "rateDifficulty": "8",
+    "rateExplanation": "7",
+    "rateLearning": "8"
   },
   {
     "studentName": "Ronaldo",
     "studentNumber": "999999999",
-    "chosenCourse": "CSS To The Rescue",
-    "chosenTeacher": "Sanne 't Hooft",
-    "week": "Week 10",
-    "rateDifficulty": "3",
-    "rateExplanation": "3",
-    "rateLearning": "2"
-  },
-  {
-    "studentName": "Ronaldo",
-    "studentNumber": "999999999",
-    "chosenCourse": "Real-Time Web",
-    "chosenTeacher": "Justus Sturkenboom",
-    "week": "Week 10",
-    "rateDifficulty": "4",
-    "rateExplanation": "4",
-    "rateLearning": "3"
+    "chosenCourse": "Web Apps From Scratch",
+    "chosenTeacher": "Declan Rek",
+    "week": "Week 5",
+    "rateDifficulty": "6",
+    "rateExplanation": "9",
+    "rateLearning": "7"
   }
 ]

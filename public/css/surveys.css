@@ -25,6 +25,9 @@ li {
 
 #toDoTitle {
   display: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  margin-bottom: 0.5em;
 }
 
 #pageTitle {
