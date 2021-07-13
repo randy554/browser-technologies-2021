@@ -16,11 +16,9 @@
     "studentName": "Ronaldo",
     "studentNumber": "999999999",
     "courses": {
-      "btech": "Browser Technologies",
-      "realtime": "Real-Time Web",
-      "hcd": "Human Centered Design"
+      "btech": "Browser Technologies"
     },
-    "progress": 3
+    "progress": 5
   },
   {
     "studentName": "Ronaldo",
@@ -50,6 +48,26 @@
     "week": "Week 10",
     "rateDifficulty": "10",
     "rateExplanation": "10",
+    "rateLearning": "4"
+  },
+  {
+    "studentName": "Ronaldo",
+    "studentNumber": "999999999",
+    "chosenCourse": "Human Centered Design",
+    "chosenTeacher": "Koop Reynders",
+    "week": "Week 10",
+    "rateDifficulty": "6",
+    "rateExplanation": "6",
+    "rateLearning": "6"
+  },
+  {
+    "studentName": "Ronaldo",
+    "studentNumber": "999999999",
+    "chosenCourse": "Real-Time Web",
+    "chosenTeacher": "Lucas van Driel",
+    "week": "Week 5",
+    "rateDifficulty": "5",
+    "rateExplanation": "6",
     "rateLearning": "4"
   }
 ]

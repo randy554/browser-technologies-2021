@@ -1,6 +1,6 @@
 let showSection = document.querySelector("#progressSection");
 let showSectionFunc = document.querySelector("#progressSectionFunc");
-showSection.style.display = "block";
+showSection.style.display = "flex";
 showSectionFunc.style.display = "none";
 
 window.addEventListener("load", () => {
