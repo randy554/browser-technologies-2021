@@ -27,5 +27,6 @@
   display: none;
 }
 #errorPar {
+  padding-top: 1em;
   color: red;
 }

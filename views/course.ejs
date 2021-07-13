@@ -7,12 +7,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/css/progress.css" />
     <link rel="stylesheet" href="/css/loader.css" />
     <link rel="stylesheet" href="/css/messages.css" />
+    <link rel="stylesheet" href="/css/surveys.css" />
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/header.css" />
     <link
@@ -34,10 +35,12 @@
     </section>
 
     <main>
-      <form action="/course" method="post" id="formAction">
-        <label for="course">Vak: <%- chosenCourse %></label>
+      <label class="formCourseTitle" for="course"
+        >Vak: <%- chosenCourse %></label
+      >
 
-        <p>Docent</p>
+      <form action="/course" method="post" id="formAction">
+        <p class="formQuestionTitles">Docent</p>
 
         <% if (chosenCourse == 'CSS To The Rescue') { %>
 
@@ -129,7 +132,7 @@
 
         <% } %>
 
-        <p>Perioden:</p>
+        <p class="formQuestionTitles">Perioden:</p>
         <input type="radio" id="week1" name="week" value="Week 5" />
         <label for="week1">Week 5 - 9</label><br />
         <input type="radio" id="week2" name="week" value="Week 10" />
@@ -139,7 +142,9 @@
         <input type="radio" id="week4" name="week" value="Week 20" />
         <label for="week4">Week 20 - 24</label><br /><br />
 
-        <label for="difficulty">Lesstof (hoe moeilijk is het):</label>
+        <label for="difficulty" class="formQuestionTitles"
+          >Lesstof (hoe moeilijk is het):</label
+        >
         <input
           type="number"
           name="rateDifficulty"
@@ -151,7 +156,7 @@
         <span id="difficultyError">Error tekst hier</span>
         <br />
 
-        <label for="explanation">
+        <label for="explanation" class="formQuestionTitles">
           Uitleg (hoe duidelijk is het uitgelegd):
         </label>
         <input
@@ -165,7 +170,9 @@
         <span id="explanationError">Error tekst hier</span>
         <br />
 
-        <label for="learned">Eigen inzicht (hoe goed snap je het):</label>
+        <label for="learned" class="formQuestionTitles"
+          >Eigen inzicht (hoe goed snap je het):</label
+        >
         <input
           type="number"
           name="rateLearning"
@@ -191,11 +198,7 @@
         <div class="loader_block">
           <input type="submit" value="Opslaan" />
           <div class="loader"></div>
-          <img
-            class="check_mark"
-            src="/images/check-mark.png"
-            alt="check mark"
-          />
+          <img class="check_mark" src="/images/check-mark.png" alt="Voldaan" />
         </div>
       </form>
       <div id="error_box"></div>

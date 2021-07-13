@@ -27,3 +27,18 @@ h2 {
   font-weight: 700;
   margin-bottom: 0.5em;
 }
+
+.formQuestionTitles {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  padding-bottom: 0.5em;
+}
+
+#formAction {
+  margin-top: 1.2em;
+}
+
+.formCourseTitle {
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+}

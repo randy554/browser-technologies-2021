@@ -200,7 +200,7 @@ createLinkToProfilePage(profileBlock);
 // Erase all error messages from page
 formEl.forEach((inputEl) => {
   inputEl.addEventListener("click", function (evt) {
-    console.log("klik hier:", evt.target.id);
+    // console.log("klik hier:", evt.target.id);
     if (document.querySelector("#errorPar")) {
       console.log("its here");
       let errorObj = document.querySelector("#errorPar");
