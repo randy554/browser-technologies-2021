@@ -245,17 +245,17 @@ submitBtn.addEventListener("click", function (evt) {
     // console.log("difficulty:", difficultyEl.value);
     // Check for difficulty question input
     if (difficultyEl.value == "" || difficultyEl == null) {
-      messages.push("Make sure to answer all questions!");
+      messages.push("Antwoord alle vragen!");
     } else if (difficultyEl.value > 10) {
-      inputErr.push("Input must be smaller than 10!");
-      difficultyError.innerText = "Input must be smaller than 10!";
+      inputErr.push("Antwoord kan niet groter dan 10 zijn!");
+      difficultyError.innerText = "Antwoord kan niet groter dan 10 zijn!";
       difficultyError.style.display = "block";
     } else if (difficultyEl.value < 1) {
-      inputErr.push("Input must be bigger than 1!");
-      difficultyError.innerText = "Input must be bigger than 1!";
+      inputErr.push("Antwoord kan niet minder zijn dan 1!");
+      difficultyError.innerText = "Antwoord kan niet minder zijn dan 1!";
       difficultyError.style.display = "block";
     } else if (isNaN(difficultyEl.value)) {
-      console.log("Only numbers allowd in field!");
+      console.log("Alleen cijfers zijn toegestaan!");
     }
 
     let explanationError = document.querySelector("#explanationError");
@@ -263,17 +263,17 @@ submitBtn.addEventListener("click", function (evt) {
     // console.log("explanation:", explanationEl.value);
     // Check for explanation question input
     if (explanationEl.value == "" || explanationEl == null) {
-      messages.push("Make sure to answer all questions!");
+      messages.push("Antwoord alle vragen!");
     } else if (explanationEl.value > 10) {
-      inputErr.push("Input must be smaller than 10!");
-      explanationError.innerText = "Input must be smaller than 10!";
+      inputErr.push("Antwoord kan niet groter dan 10 zijn!");
+      explanationError.innerText = "Antwoord kan niet groter dan 10 zijn!";
       explanationError.style.display = "block";
     } else if (explanationEl.value < 1) {
-      inputErr.push("Input must be bigger than 1!");
-      explanationError.innerText = "Input must be bigger than 1!";
+      inputErr.push("Antwoord kan niet minder zijn dan 1!");
+      explanationError.innerText = "Antwoord kan niet minder zijn dan 1!";
       explanationError.style.display = "block";
     } else if (isNaN(explanationEl.value)) {
-      console.log("Only numbers allowd in field!");
+      console.log("Alleen cijfers zijn toegestaan!");
     }
 
     let learnedError = document.querySelector("#learnedError");

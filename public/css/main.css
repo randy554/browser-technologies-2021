@@ -1,5 +1,6 @@
 :root {
   --header_blue: #3b5cd0;
+  --sub_headers: #9088ee;
   --white: #ffffff;
 }
 
@@ -23,6 +24,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
 h2 {
@@ -44,4 +46,9 @@ h2 {
 .formCourseTitle {
   font-family: "Roboto", sans-serif;
   font-weight: 100;
+}
+
+[type="submit"] {
+  margin-top: 1em;
+  padding: 0.5em;
 }

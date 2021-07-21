@@ -30,3 +30,7 @@
   padding-top: 1em;
   color: red;
 }
+
+#error_block {
+  margin: 1em 0;
+}

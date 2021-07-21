@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="/css/surveys.css" />
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/mobile.css" />
+    <link rel="stylesheet" href="/css/messages.css" />
+    <link rel="stylesheet" href="/css/errors.css" />
     <link
       rel="shortcut icon"
       href="/images/icons/favicon.ico"
@@ -34,14 +37,14 @@
 
     <main>
       <% if(messages.length > 0 ) { %>
-      <ul>
+      <ul id="error_block">
         <% messages.forEach(error => { %>
         <li class="surveyError"><%- error %></li>
         <% }); %>
       </ul>
       <% } %>
 
-      <label class="formCourseTitle" for="course"
+      <label class="formCourseTitle errorspace" for="course"
         >Vak: <%- chosenCourse %></label
       >
 

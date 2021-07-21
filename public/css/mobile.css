@@ -1,0 +1,13 @@
+@media screen and (max-width: 500px) {
+  br {
+    margin-bottom: 1em;
+  }
+}
+
+.pendingSurveys {
+  margin-bottom: 0.3em;
+}
+
+.noStart {
+  margin-bottom: 0.3em;
+}

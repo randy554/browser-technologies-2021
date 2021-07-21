@@ -23,4 +23,7 @@
   padding: 0 1em;
 }
 
+#progressSectionFunc p {
+  text-align: center;
+}
 /* ------ progress bar ------ */
