@@ -154,6 +154,7 @@
           max="10"
           placeholder="Geef een cijfer tussen 1-10"
         />
+        <span id="difficultyError">Error tekst hier</span>
         <br />
 
         <label for="explanation" class="formQuestionTitles">
@@ -167,6 +168,7 @@
           max="10"
           placeholder="Geef een cijfer tussen 1-10"
         />
+        <span id="explanationError">Error tekst hier</span>
         <br />
 
         <label for="learned" class="formQuestionTitles"
@@ -180,6 +182,7 @@
           max="10"
           placeholder="Geef een cijfer tussen 1-10"
         />
+        <span id="learnedError">Error tekst hier</span>
         <br /><br />
 
         <input type="hidden" name="page" value="2" />
@@ -199,6 +202,8 @@
           <img class="check_mark" src="/images/check-mark.png" alt="Voldaan" />
         </div>
       </form>
+      <div id="error_box"></div>
+      <div id="profileblock"></div>
     </main>
     <%- include('partials/coursefooter'); %>
   </body>
