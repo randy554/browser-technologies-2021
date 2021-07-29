@@ -156,7 +156,7 @@ app.post("/nextcoursejs", (req, res) => {
     });
   }
   if (req.body.chosenCourse == "Web Apps From Scratch") {
-    res.render("course", {
+    res.render("nextcourse", {
       progress: ++req.body.progressValue,
       chosenCourse: "Web Apps From Scratch",
       studentName: req.body.studentName,

@@ -399,6 +399,56 @@ submitBtn.addEventListener("click", function (evt) {
         rootElement.insertAdjacentElement("afterend", text);
       }
 
+      // Create next course to be taken button
+      function endSurveyElements(rootElement, courseName, currentSubmitBn) {
+        // Remove checkMark
+        toggleCheckMark("off");
+        // Remove current submit button from block
+        currentSubmitBn.style.display = "none";
+
+        // // Create button & set attributes
+        // let input = document.createElement("input");
+        // input.setAttribute("type", "submit");
+        // input.setAttribute("class", "nextSurveyBtn");
+        // input.setAttribute("value", courseName);
+
+        // Change chosen course value
+        chosenCourse = courseName;
+
+        let newChosenCourse = document.querySelector("#getChosenCourse");
+        newChosenCourse.value = courseName;
+        console.log("Dit is nu de chosen:", newChosenCourse);
+
+        // Create description text: Volgende enquete?
+        let text = document.createElement("p");
+        text.innerText = "Volgende enquete?";
+        let br = document.createElement("br");
+        let anotherBr = document.createElement("br");
+
+        // Create link to profile page here: Terug naar overzicht
+        let link = document.createElement("a");
+        link.innerText = "Terug naar het overzicht";
+
+        // Change the form action attribute
+        formAction.setAttribute("action", "/nextcoursejs");
+
+        // Get request
+        link.setAttribute(
+          "href",
+          `/profilejs/${studentName}/${studentNumber}/6`
+        );
+
+        // Remove duplicate backlink to profilepage
+        profileBlock.remove();
+
+        // Position created elements on page
+        rootElement.insertAdjacentElement("afterend", link);
+        rootElement.insertAdjacentElement("afterend", br);
+        rootElement.insertAdjacentElement("afterend", anotherBr);
+        // rootElement.insertAdjacentElement("afterend", input);
+        // rootElement.insertAdjacentElement("afterend", text);
+      }
+
       // Fetch options
       const options = {
         method: "POST",
@@ -423,11 +473,16 @@ submitBtn.addEventListener("click", function (evt) {
         .then((nextCourse) => {
           console.log("This is the final then:");
           console.log(nextCourse);
+          console.log("Course(s) finished:", nextCourse.progress);
           let courseTodo = nextCourse.nextCourse;
           console.log("Next course todo: ", courseTodo);
 
-          if (courseTodo) {
-            createNextSurveyElements(loaderBlock, courseTodo, submitBtn);
+          if (nextCourse.nextCourse != "undefined") {
+            if (nextCourse.progress == 6) {
+              endSurveyElements(loaderBlock, courseTodo, submitBtn);
+            } else {
+              createNextSurveyElements(loaderBlock, courseTodo, submitBtn);
+            }
           }
         });
 
