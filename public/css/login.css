@@ -1,0 +1,50 @@
+:root {
+  --button_blue: #1b60db;
+  --button_blue_hover: #1f6bf2;
+  --button_border_blue: #103880;
+  --white: #ffffff;
+}
+
+[type="submit"] {
+  margin-top: 1em;
+  padding: 0.9em 1em;
+  background-color: #1b60db;
+  color: #fff;
+  border: 0;
+  box-shadow: 0 0.2em 0 0 var(--button_border_blue);
+  cursor: pointer;
+}
+
+[type="submit"]:hover {
+  background-color: var(--button_blue_hover);
+  box-shadow: 0 0.2em 0 0 var(--button_border_blue);
+}
+
+@media screen and (max-width: 500px) {
+  [type="submit"] {
+    margin-top: 1em;
+    background-color: var(--button_blue);
+    color: #fff;
+    border: 0;
+    box-shadow: 0 0.2em 0 0 var(--button_border_blue);
+    cursor: pointer;
+    padding: 0.9em 0;
+  }
+
+  @supports (display: flex) {
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 80vw;
+    }
+    label[for="nameStudent"] {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label[for="studentNumber"] {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
