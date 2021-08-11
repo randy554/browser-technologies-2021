@@ -53,8 +53,43 @@ h2 {
   padding: 0.5em;
 }
 
+#profileblock {
+  margin-bottom: 30px;
+}
+
 @supports selector(a:focus-visible) {
   a:focus-visible {
     outline: 3px solid var(--header_blue);
   }
 }
+
+input[id="nameStudent"] {
+  margin: 0.5em;
+}
+input[id="studentNumber"] {
+  margin: 0.5em;
+}
+
+label[for="nameStudent"] {
+  display: flex;
+  flex-direction: column;
+}
+
+label[for="studentNumber"] {
+  display: flex;
+  flex-direction: column;
+}
+
+/* @media screen and (max-width: 500px) {
+  @supports (display: flex) {
+    label[for="nameStudent"] {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label[for="studentNumber"] {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+} */
