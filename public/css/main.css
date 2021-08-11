@@ -65,12 +65,11 @@ h2 {
 
 input[id="nameStudent"] {
   margin: 0.5em 0;
-  /* height: 2.5em; */
   height: 3.1em;
+  padding-left: 1em;
 }
 input[id="studentNumber"] {
   margin: 0.5em 0;
-  /* height: 2.5em; */
   height: 3.1em;
   padding-left: 1em;
 }
