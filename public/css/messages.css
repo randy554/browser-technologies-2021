@@ -1,5 +1,5 @@
 .inlog_failed {
-  color: red;
+  color: var(--header_blue);
 }
 
 #opgeslagenVak {
@@ -15,20 +15,20 @@
 }
 
 #difficultyError {
-  color: red;
+  color: var(--header_blue);
   display: none;
 }
 #explanationError {
-  color: red;
+  color: var(--header_blue);
   display: none;
 }
 #learnedError {
-  color: red;
+  color: var(--header_blue);
   display: none;
 }
 #errorPar {
   padding-top: 1em;
-  color: red;
+  color: var(--header_blue);
 }
 
 #error_block {

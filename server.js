@@ -415,6 +415,8 @@ app.post("/course", (req, res) => {
       });
 
       console.log("progress status:", status[0].progress);
+      console.log("Wat is hasCourse:", hasCourse);
+      console.log("Wat is clean:", clean[0]);
       // let progressData = status.progress;
 
       res.render("profile", {

@@ -1,32 +1,6 @@
 [
   {
-    "studentName": "Randy",
-    "studentNumber": "999999999",
-    "courses": {
-      "css": "CSS To The Rescue",
-      "wafs": "Web Apps From Scratch",
-      "pwa": "Progressive Web Apps",
-      "btech": "Browser Technologies",
-      "realtime": "Real-Time Web",
-      "hcd": "Human Centered Design"
-    },
-    "progress": 0
-  },
-  {
     "studentName": "Ronaldo",
-    "studentNumber": "999999999",
-    "courses": {
-      "css": "CSS To The Rescue",
-      "wafs": "Web Apps From Scratch",
-      "pwa": "Progressive Web Apps",
-      "btech": "Browser Technologies",
-      "realtime": "Real-Time Web",
-      "hcd": "Human Centered Design"
-    },
-    "progress": 0
-  },
-  {
-    "studentName": " Randy",
     "studentNumber": "999999999",
     "courses": {
       "css": "CSS To The Rescue",
