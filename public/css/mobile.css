@@ -6,14 +6,25 @@
   margin-bottom: 1.5em;
 }
 
-br {
+input[type="radio"] + label {
+  display: inline-block;
   margin-bottom: 1em;
 }
 
+input[type="number"] {
+  width: 70%;
+}
+
 @media screen and (min-width: 500px) {
-  br {
+  input[type="number"] {
+    width: auto;
+  }
+
+  input[type="radio"] + label {
+    display: inline-block;
     margin-bottom: 0;
   }
+
   .noStart {
     margin-bottom: 0.3em;
   }
