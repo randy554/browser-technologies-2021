@@ -280,20 +280,36 @@ submitBtn.addEventListener("click", function (evt) {
 
     // console.log("learning:", learningEl.value);
     // Check for learning question input
+    // if (learningEl.value == "" || learningEl == null) {
+    //   messages.push("Make sure to answer all questions!");
+    // } else if (learningEl.value > 10) {
+    //   inputErr.push("Input must be smaller than 10!");
+    //   // Show error on page
+    //   learnedError.innerText = "Input must be smaller than 10!";
+    //   learnedError.style.display = "block";
+    // } else if (learningEl.value < 1) {
+    //   inputErr.push("Input must be bigger than 1!");
+    //   // Show error on page
+    //   learnedError.innerText = "Input must be bigger than 1!";
+    //   learnedError.style.display = "block";
+    // } else if (isNaN(learningEl.value)) {
+    //   console.log("Only numbers allowd in field!");
+    // }
+
     if (learningEl.value == "" || learningEl == null) {
-      messages.push("Make sure to answer all questions!");
+      messages.push("Antwoord alle vragen!");
     } else if (learningEl.value > 10) {
-      inputErr.push("Input must be smaller than 10!");
+      inputErr.push("Antwoord kan niet groter dan 10 zijn!");
       // Show error on page
-      learnedError.innerText = "Input must be smaller than 10!";
+      learnedError.innerText = "Antwoord kan niet groter dan 10 zijn!";
       learnedError.style.display = "block";
     } else if (learningEl.value < 1) {
-      inputErr.push("Input must be bigger than 1!");
+      inputErr.push("Antwoord kan niet minder zijn dan 1!");
       // Show error on page
-      learnedError.innerText = "Input must be bigger than 1!";
+      learnedError.innerText = "Antwoord kan niet minder zijn dan 1!";
       learnedError.style.display = "block";
     } else if (isNaN(learningEl.value)) {
-      console.log("Only numbers allowd in field!");
+      console.log("Alleen cijfers zijn toegestaan!");
     }
 
     if (messages.length > 0) {
