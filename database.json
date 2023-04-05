@@ -3,40 +3,13 @@
     "studentName": "Ronaldo",
     "studentNumber": "999999999",
     "courses": {
+      "css": "CSS To The Rescue",
+      "wafs": "Web Apps From Scratch",
+      "pwa": "Progressive Web Apps",
       "btech": "Browser Technologies",
       "realtime": "Real-Time Web",
       "hcd": "Human Centered Design"
     },
-    "progress": 3
-  },
-  {
-    "studentName": "Ronaldo",
-    "studentNumber": "999999999",
-    "chosenCourse": "CSS To The Rescue",
-    "chosenTeacher": "Vasilis van Gemert",
-    "week": "Week 10",
-    "rateDifficulty": "7",
-    "rateExplanation": "5",
-    "rateLearning": "7"
-  },
-  {
-    "studentName": "Ronaldo",
-    "studentNumber": "999999999",
-    "chosenCourse": "Web Apps From Scratch",
-    "chosenTeacher": "Declan Rek",
-    "week": "Week 10",
-    "rateDifficulty": "7",
-    "rateExplanation": "9",
-    "rateLearning": "9"
-  },
-  {
-    "studentName": "Ronaldo",
-    "studentNumber": "999999999",
-    "chosenCourse": "Progressive Web Apps",
-    "chosenTeacher": "Joost Faber",
-    "week": "Week 5",
-    "rateDifficulty": "5",
-    "rateExplanation": "5",
-    "rateLearning": "5"
+    "progress": 0
   }
 ]

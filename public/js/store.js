@@ -245,7 +245,7 @@ submitBtn.addEventListener("click", function (evt) {
     // console.log("difficulty:", difficultyEl.value);
     // Check for difficulty question input
     if (difficultyEl.value == "" || difficultyEl == null) {
-      messages.push("Antwoord alle vragen!");
+      messages.push("Antwoord alle vragen juist!");
     } else if (difficultyEl.value > 10) {
       inputErr.push("Antwoord kan niet groter dan 10 zijn!");
       difficultyError.innerText = "Antwoord kan niet groter dan 10 zijn!";
@@ -263,7 +263,7 @@ submitBtn.addEventListener("click", function (evt) {
     // console.log("explanation:", explanationEl.value);
     // Check for explanation question input
     if (explanationEl.value == "" || explanationEl == null) {
-      messages.push("Antwoord alle vragen!");
+      messages.push("Antwoord alle vragen juist!");
     } else if (explanationEl.value > 10) {
       inputErr.push("Antwoord kan niet groter dan 10 zijn!");
       explanationError.innerText = "Antwoord kan niet groter dan 10 zijn!";
@@ -297,7 +297,7 @@ submitBtn.addEventListener("click", function (evt) {
     // }
 
     if (learningEl.value == "" || learningEl == null) {
-      messages.push("Antwoord alle vragen!");
+      messages.push("Antwoord alle vragen juist!");
     } else if (learningEl.value > 10) {
       inputErr.push("Antwoord kan niet groter dan 10 zijn!");
       // Show error on page
